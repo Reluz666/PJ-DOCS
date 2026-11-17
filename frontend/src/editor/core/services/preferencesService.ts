@@ -44,7 +44,7 @@ export const DEFAULT_PREFERENCES: UserPreferences = {
   defaultToolPanelMode: DEFAULT_TOOL_PANEL_MODE,
   defaultStartupView: "tools",
   defaultViewerZoom: "auto",
-  theme: "system",
+  theme: "light",
   toolPanelModePromptSeen: false,
   hasSelectedToolPanelMode: false,
   showLegacyToolDescriptions: false,
