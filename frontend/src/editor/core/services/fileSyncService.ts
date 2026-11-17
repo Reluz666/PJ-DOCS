@@ -19,6 +19,7 @@ import {
   loadShareBundleEntries,
   parseContentDispositionFilename,
 } from "@editor/services/shareBundleUtils";
+import { isAnonymousAccessAllowed } from "@editor/services/httpErrorHandler";
 
 /**
  * Trust-boundary parser for folderId values coming back from the server.
@@ -278,6 +279,8 @@ export async function reconcileServerFiles(
     const status = (err as { response?: { status?: number } })?.response
       ?.status;
     console.warn("[fileSyncService] failed to pull server files", err);
+    // PJ-DOCS: anonymous visitors have no cloud library; local files are expected
+    if (status === 401 && isAnonymousAccessAllowed()) return localStubs;
     alert({
       alertType: "warning",
       title:

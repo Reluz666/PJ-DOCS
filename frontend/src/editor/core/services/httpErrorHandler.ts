@@ -27,6 +27,9 @@ let anonymousAccessAllowed = false;
 export function setAnonymousAccessAllowed(v: boolean): void {
   anonymousAccessAllowed = v;
 }
+export function isAnonymousAccessAllowed(): boolean {
+  return anonymousAccessAllowed;
+}
 
 const POST_LOGIN_REDIRECT_STORAGE_KEY = "stirling_post_login_path";
 

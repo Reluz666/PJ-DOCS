@@ -9,6 +9,7 @@ import {
   SignRequestSummary,
   SessionSummary,
 } from "@editor/types/signingSession";
+import { isAnonymousAccessAllowed } from "@editor/services/httpErrorHandler";
 
 const EMPTY_REQUESTS: SignRequestSummary[] = [];
 const EMPTY_SESSIONS: SessionSummary[] = [];
@@ -43,7 +44,8 @@ export const useSigningSessions = (
     useQuery({
       queryKey: qk.signingSessions(user?.id ?? null),
       queryFn: fetchSigningSessions,
-      enabled: enabled && !authLoading,
+      // PJ-DOCS: anonymous visitors have no signing sessions; don't ask (it 401s)
+      enabled: enabled && !authLoading && (!!user || !isAnonymousAccessAllowed()),
       staleTime: 0,
       refetchInterval: autoRefreshInterval > 0 ? autoRefreshInterval : false,
       refetchIntervalInBackground: false,

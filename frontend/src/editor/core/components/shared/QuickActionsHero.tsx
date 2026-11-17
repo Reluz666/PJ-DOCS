@@ -689,10 +689,15 @@ export function QuickActionsHero({
               title="Corte Superior de Justicia de Lambayeque"
             >
               <img
-                src={withBasePath("/logo-csjla-header.webp")}
-                alt="Corte Superior de Justicia de Lambayeque"
-                className="app-court-logo"
+                src={withBasePath("/csjla-emblem.webp")}
+                alt=""
+                className="app-court-emblem"
               />
+              <span className="app-court-name">
+                Corte Superior de Justicia
+                <br />
+                de Lambayeque
+              </span>
             </div>
           </div>
         </div>
@@ -823,20 +828,6 @@ export function QuickActionsHero({
             ))
           )}
         </main>
-
-        {/* ── 3. FIRMA INSTITUCIONAL INFORMÁTICA - CSJLA ── */}
-        <footer className="app-portal-signature">
-          <div className="portal-footer-signature-content">
-            <img
-              src={withBasePath("/oid-tec.webp")}
-              alt="Informática - CSJLA"
-              className="portal-footer-oid-logo"
-            />
-            <span className="portal-footer-signature-text">
-              Informática - CSJLA | Alejandro R.M
-            </span>
-          </div>
-        </footer>
       </div>
     </div>
   );
