@@ -9,7 +9,7 @@ import {
   SignRequestSummary,
   SessionSummary,
 } from "@editor/types/signingSession";
-import { isAnonymousAccessAllowed } from "@editor/services/httpErrorHandler";
+import { useAppConfig } from "@editor/contexts/AppConfigContext";
 
 const EMPTY_REQUESTS: SignRequestSummary[] = [];
 const EMPTY_SESSIONS: SessionSummary[] = [];
@@ -39,13 +39,14 @@ export const useSigningSessions = (
   const { enabled = true, autoRefreshInterval = 0 } = options;
   const { t } = useTranslation();
   const { user, loading: authLoading } = useAuth();
+  const { config } = useAppConfig();
 
   const { data, isLoading, isFetching, isLoadingError, error, refetch } =
     useQuery({
       queryKey: qk.signingSessions(user?.id ?? null),
       queryFn: fetchSigningSessions,
       // PJ-DOCS: anonymous visitors have no signing sessions; don't ask (it 401s)
-      enabled: enabled && !authLoading && (!!user || !isAnonymousAccessAllowed()),
+      enabled: enabled && !authLoading && (!!user || (config != null && !config.allowAnonymous)),
       staleTime: 0,
       refetchInterval: autoRefreshInterval > 0 ? autoRefreshInterval : false,
       refetchIntervalInBackground: false,

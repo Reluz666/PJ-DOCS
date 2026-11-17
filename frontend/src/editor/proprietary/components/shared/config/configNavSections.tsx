@@ -45,6 +45,7 @@ import AdminUsageSection from "@editor/components/shared/config/configSections/A
 import ApiKeys from "@editor/components/shared/config/configSections/ApiKeys";
 import ConnectedAccountsSection from "@editor/components/shared/config/configSections/ConnectedAccountsSection";
 import { useAppConfig } from "@editor/contexts/AppConfigContext";
+import { useAuth } from "@editor/auth/UseSession";
 import { accountConnectionsOffered } from "@editor/hooks/useConnectedAccounts";
 
 /**
@@ -63,6 +64,7 @@ export const useConfigNavSections = (
 ): ConfigNavSection[] => {
   const { t } = useTranslation();
   const { config } = useAppConfig();
+  const { user } = useAuth();
 
   // Core ships Preferences and About; About is the small print and stays last.
   const coreSections = useCoreConfigNavSections(
@@ -72,6 +74,16 @@ export const useConfigNavSections = (
     onRequestClose,
     showSettingsWhenNoLogin,
   );
+  // PJ-DOCS: public visitors (no session) only get Appearance.
+  if (config?.allowAnonymous && !user && !isAdmin) {
+    return extendPreferences(
+      coreSections.filter((s) => s.id === "preferences"),
+      { appearanceOnly: true, hideAdminBanner: true },
+    ).map((s) => ({
+      ...s,
+      items: s.items.filter((i) => i.key === "general"),
+    }));
+  }
   const about = coreSections.filter((s) => s.id === "about");
   // Core owns the page; the flavor supplies what core has no concept of.
   const sections = extendPreferences(

@@ -29,6 +29,8 @@ export interface PreferencesSectionProps {
   accountSlot?: ReactNode;
   /** Extra rows under Editor defaults: login landing, desktop file defaults. */
   editorDefaultsSlot?: ReactNode;
+  /** PJ-DOCS: anonymous visitors only get the Appearance card. */
+  appearanceOnly?: boolean;
 }
 
 /** True when the URL deep-links at the shortcuts card, which starts collapsed. */
@@ -54,6 +56,7 @@ export default function PreferencesSection({
   desktopUpdateMode,
   accountSlot,
   editorDefaultsSlot,
+  appearanceOnly = false,
 }: PreferencesSectionProps) {
   const { t } = useTranslation();
   const { config } = useAppConfig();
@@ -63,6 +66,21 @@ export default function PreferencesSection({
   // desktop updater. Not mounting the card is what skips the update check.
   const showUpdates =
     !hideUpdateSection && Boolean(config?.appVersion || desktopInstall);
+
+  if (appearanceOnly) {
+    return (
+      <div className="settings-section-container">
+        <div className="preferences-section">
+          <SettingsCard
+            id="appearance"
+            title={t("settings.preferences.appearance", "Appearance")}
+          >
+            <AppearanceCard />
+          </SettingsCard>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="settings-section-container">
