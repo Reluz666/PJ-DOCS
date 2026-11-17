@@ -1,27 +1,17 @@
 import { useTranslation } from "react-i18next";
 import { useLocalProcessingOnly } from "@editor/hooks/useLocalProcessingOnly";
-import { useState } from "react";
-import { SignMenu } from "@editor/components/shared/signing/SignMenu";
-import { requestSigningIntent } from "@editor/utils/pendingSigningIntent";
 import { useLocation, useNavigate } from "react-router-dom";
 import { QuickNavRailContainer } from "@editor/components/shared/quickNav/QuickNavRailContainer";
 import type { QuickNavEntry } from "@editor/components/shared/quickNav/QuickNavRailBase";
-import type { ToolId } from "@editor/types/toolId";
 import { useQuickNavHost } from "@editor/contexts/QuickNavHostContext";
 import { requestReaderMode } from "@editor/utils/pendingReaderMode";
 import {
-  saveEditorReturnPath,
   takeEditorReturnPath,
 } from "@editor/services/workbenchSession";
 import { EDITOR_BASENAME } from "@editor/routes/editorBasename";
 import { PORTAL_BASENAME } from "@editor/routes/portalBasename";
-import { HAS_PORTAL } from "@editor/routes/hasPortal";
 import { DOCS_PATH } from "@editor/routes/docsRoute";
 import { stripBasePath } from "@editor/constants/app";
-import { canCreateProcessingFolders } from "@editor/hooks/useProcessingFolderCreation";
-import { requestProcessingFolderCreation } from "@editor/utils/pendingProcessingFolderCreation";
-import { requestProcessorSignup } from "@editor/services/processorSignup";
-import { useConnectedServer } from "@editor/hooks/useConnectedServer";
 
 import { Icon } from "@editor/ui/Icon";
 const SIZE = "1.125rem";
@@ -36,11 +26,6 @@ export function QuickNavRailHost() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const host = useQuickNavHost();
-  const [signMenuOpen, setSignMenuOpen] = useState(false);
-  // Processing folders run on the non-core API server. True on web (served by that backend);
-  // on desktop it tracks the signed-in connection, so the entry falls inert until the user
-  // signs in to Stirling Cloud or a self-hosted server.
-  const connectedServer = useConnectedServer();
 
   const appMounted = Boolean(host?.appMounted);
 
@@ -74,13 +59,6 @@ export function QuickNavRailHost() {
   };
 
   const go = (to: string) => guarded(() => navigate(to));
-
-  // Through the app where possible: its route only selects a tool on a fresh mount.
-  const openTool = (toolId: ToolId, route: string) => {
-    const select = host?.actions.current?.selectTool;
-    if (select) select(toolId);
-    else go(route);
-  };
 
   // Reading is a surface of its own rather than a tool inside the editor, and it
   // leads the group because it is where most visits start.
@@ -124,37 +102,11 @@ export function QuickNavRailHost() {
     },
   };
 
-  const processor: QuickNavEntry = {
-    id: "processor",
-    label: t("quickNav.processor", "Processor"),
-    icon: <Icon name="cpu" size={SIZE} />,
-    current: inPortal,
-    disabled:
-      HAS_PORTAL && !inPortal && !host?.portalAccess && !host?.isAnonymous,
-    reason:
-      HAS_PORTAL && !inPortal && !host?.portalAccess && !host?.isAnonymous
-        ? t("quickNav.noProcessorAccess", "Ask an admin for processor access")
-        : undefined,
-    onClick: () => {
-      if (host?.isAnonymous) {
-        requestProcessorSignup();
-        return;
-      }
-      if (inPortal) {
-        returnHome();
-        return;
-      }
-      if (inEditor) saveEditorReturnPath();
-      go(PORTAL_BASENAME);
-    },
-  };
-
   // The processor is additive: dropping the editor with it left a lone reader
   // entry in builds without a portal, with no way back out of reading.
   const surfaces: QuickNavEntry[] = [
     reader,
     editor,
-    ...(HAS_PORTAL && !localOnly ? [processor] : []),
   ];
 
   const within: QuickNavEntry[] = [
@@ -170,68 +122,17 @@ export function QuickNavRailHost() {
             onClick: () => host?.actions.current?.openFromComputer?.(),
           },
         ]),
-    ...(canCreateProcessingFolders && !localOnly
-      ? [
-          {
-            id: "createProcessingFolder",
-            label: t("processingFolders.setup.title"),
-            icon: <Icon name="folder-plus" size={SIZE} />,
-            disabled: !connectedServer,
-            reason: connectedServer
-              ? undefined
-              : t("quickNav.signInToUse", "Sign in to use this"),
-            onClick: () => {
-              if (host?.isAnonymous) {
-                requestProcessorSignup();
-                return;
-              }
-              const open = host?.actions.current?.createProcessingFolder;
-              if (open) open();
-              else
-                guarded(() => {
-                  requestProcessingFolderCreation();
-                  navigate(EDITOR_BASENAME);
-                });
-            },
-          },
-        ]
-      : []),
+    // ponytail: local IndexedDB library replaces processing folders and the sign menu in the rail.
     {
-      id: "sign",
-      label: host?.signingBadge
-        ? t("signMenu.triggerUnreadCount", "Sign · {{count}} unread sessions", {
-            count: host.signingBadge,
-          })
-        : t("signMenu.title", "Sign"),
-      icon: <Icon name="pen-tool" size={SIZE} />,
-      badge: host?.signingBadge,
-      badgeMax: null,
-      badgeTone: "warning",
-      current:
-        host?.activeTool === "sign" ||
-        host?.activeTool === "certSign" ||
-        path === "/shared-sign",
-      expanded: signMenuOpen,
-      onClick: () => setSignMenuOpen((open) => !open),
-      wrap: (button) => (
-        <SignMenu
-          opened={signMenuOpen}
-          onClose={() => setSignMenuOpen(false)}
-          reasons={host?.toolReasons ?? {}}
-          items={host?.signingItems ?? []}
-          onOpenSigning={(intent) =>
-            guarded(() => {
-              requestSigningIntent(intent);
-              navigate("/shared-sign");
-            })
-          }
-          onSelect={(tool) =>
-            openTool(tool, tool === "certSign" ? "/cert-sign" : "/sign")
-          }
-        >
-          {button}
-        </SignMenu>
-      ),
+      id: "fileLibrary",
+      label: t("fileSidebar.myFiles", "File library"),
+      icon: <Icon name="folder" size={SIZE} />,
+      current: Boolean(host?.fileLibrary),
+      onClick: () => {
+        const open = host?.actions.current?.showFileLibrary;
+        if (open) open();
+        else guarded(() => navigate(EDITOR_BASENAME));
+      },
     },
   ];
 
