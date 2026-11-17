@@ -835,21 +835,6 @@ export default function HomePage() {
                 />
               </div>
             )}
-            {!shouldRenderFileSidebar &&
-              activeFiles.length > 0 &&
-              !readerMode &&
-              !isLandingSuite && (
-                <button
-                  type="button"
-                  className="app-floating-file-pill"
-                  onClick={() => setFileSidebarExpanded(true)}
-                  title="Ver panel de archivos cargados"
-                  aria-label="Ver panel de archivos cargados"
-                >
-                  <Icon name="files" size="0.95rem" />
-                  <span>Archivos ({activeFiles.length})</span>
-                </button>
-              )}
             <Workbench />
             {isMobile && mobileNavigation}
             {/* The reader's rail takes the slot the tool panel holds otherwise: the
