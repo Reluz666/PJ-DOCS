@@ -11,76 +11,17 @@ interface SmallpdfToolItem {
   iconName: IconName;
   title: string;
   desc: string;
-  color: string;
-  bg: string;
 }
 
 // ── 1. HERRAMIENTAS MÁS POPULARES (CABECERA SMALLPDF) ───────
-const POPULAR_TOOLS: SmallpdfToolItem[] = [
-  {
-    id: "pdfTextEditor",
-    iconName: "file-pen",
-    title: "Editar Texto de PDF",
-    desc: "Modifica, corrige o añade texto directamente sobre las páginas de tu archivo.",
-    color: "var(--c-tool-pdfTextEditor-color)",
-    bg: "var(--c-tool-pdfTextEditor-surface)",
-  },
-  {
-    id: "compress",
-    iconName: "shrink",
-    title: "Comprimir PDF",
-    desc: "Reduce el peso de tu archivo al máximo para enviarlo fácil por correo o web.",
-    color: "var(--c-tool-compress-color)",
-    bg: "var(--c-tool-compress-surface)",
-  },
-  {
-    id: "split",
-    iconName: "scissors",
-    title: "Dividir PDF",
-    desc: "Separa páginas, extrae hojas individuales o divide documentos grandes.",
-    color: "var(--c-tool-split-color)",
-    bg: "var(--c-tool-split-surface)",
-  },
-  {
-    id: "convert",
-    iconName: "file-convert",
-    title: "Convertir PDF",
-    desc: "Transforma a Word, Excel, PowerPoint, imágenes o pasa fotos a PDF.",
-    color: "var(--c-tool-convert-color)",
-    bg: "var(--c-tool-convert-surface)",
-  },
-  {
-    id: "merge",
-    iconName: "copy-plus",
-    title: "Unir PDFs",
-    desc: "Combina varios archivos o imágenes en un solo documento en el orden que desees.",
-    color: "var(--c-tool-merge-color)",
-    bg: "var(--c-tool-merge-surface)",
-  },
-  {
-    id: "extractPages",
-    iconName: "download",
-    title: "Extraer Páginas",
-    desc: "Guarda páginas o rangos de fojas seleccionadas en un nuevo archivo independiente.",
-    color: "var(--c-tool-extractPages-color)",
-    bg: "var(--c-tool-extractPages-surface)",
-  },
-  {
-    id: "addPageNumbers",
-    iconName: "file-digit",
-    title: "Foliar y Numerar",
-    desc: "Inserta numeración correlativa o foliación oficial en el encabezado o pie de página.",
-    color: "var(--c-tool-addPageNumbers-color)",
-    bg: "var(--c-tool-addPageNumbers-surface)",
-  },
-  {
-    id: "removePages",
-    iconName: "file-x",
-    title: "Eliminar Páginas",
-    desc: "Suprime hojas en blanco, fojas erróneas o páginas que ya no utilices.",
-    color: "var(--c-tool-removePages-color)",
-    bg: "var(--c-tool-removePages-surface)",
-  },
+// Accesos rápidos: herramientas que ya existen en las secciones
+const QUICK_TOOL_IDS: ToolId[] = [
+  "merge",
+  "compress",
+  "split",
+  "addPageNumbers",
+  "ocr",
+  "sign",
 ];
 
 // ── 2. SECCIONES TEMÁTICAS ORGANIZADAS (ESTILO SMALLPDF) ───
@@ -92,215 +33,164 @@ interface ToolSection {
 
 const TOOL_SECTIONS: ToolSection[] = [
   {
-    id: "popular",
-    title: "Herramientas Más Usadas",
-    tools: POPULAR_TOOLS,
-  },
-  {
     id: "organize",
-    title: "Organizar y Gestionar Páginas",
+    title: "Organizar páginas",
     tools: [
       {
         id: "merge",
         iconName: "copy-plus",
         title: "Unir PDFs",
         desc: "Junta varios documentos PDF en un solo archivo organizado.",
-        color: "var(--c-tool-popular-color)",
-        bg: "var(--c-tool-popular-surface)",
       },
       {
         id: "split",
         iconName: "scissors",
         title: "Dividir PDF",
         desc: "Separa páginas o extrae rangos de fojas en archivos nuevos.",
-        color: "var(--c-tool-split-color)",
-        bg: "var(--c-tool-split-surface)",
       },
       {
         id: "extractPages",
         iconName: "download",
-        title: "Extraer Páginas",
+        title: "Extraer páginas",
         desc: "Guarda páginas seleccionadas en un documento independiente.",
-        color: "var(--c-tool-extractPages-color)",
-        bg: "var(--c-tool-extractPages-surface)",
       },
       {
         id: "rotate",
         iconName: "rotate-cw",
-        title: "Rotar Páginas",
+        title: "Rotar páginas",
         desc: "Gira páginas en 90°, 180° o ajusta su orientación horizontal y vertical.",
-        color: "var(--c-tool-rotate-color)",
-        bg: "var(--c-tool-rotate-surface)",
       },
       {
         id: "crop",
         iconName: "crop",
-        title: "Recortar Márgenes",
+        title: "Recortar márgenes",
         desc: "Elimina bordes en blanco o ajusta el encuadre visible de las páginas.",
-        color: "var(--c-tool-crop-color)",
-        bg: "var(--c-tool-crop-surface)",
       },
       {
         id: "removePages",
         iconName: "file-x",
-        title: "Eliminar Páginas",
+        title: "Eliminar páginas",
         desc: "Suprime hojas en blanco, errores o páginas que no necesites.",
-        color: "var(--c-tool-removePages-color)",
-        bg: "var(--c-tool-removePages-surface)",
       },
       {
         id: "addPageNumbers",
         iconName: "file-digit",
-        title: "Foliar y Numerar",
+        title: "Foliar y numerar",
         desc: "Inserta numeración correlativa o foliación en el encabezado o pie.",
-        color: "var(--c-tool-addPageNumbers-color)",
-        bg: "var(--c-tool-addPageNumbers-surface)",
       },
       {
         id: "flatten",
         iconName: "layers",
         title: "Aplanar PDF",
         desc: "Bloquea formularios y unifica capas para evitar modificaciones.",
-        color: "var(--c-tool-flatten-color)",
-        bg: "var(--c-tool-flatten-surface)",
       },
     ],
   },
   {
     id: "convert",
-    title: "Convertir y Reconocimiento de Texto",
+    title: "Convertir y OCR",
     tools: [
       {
         id: "convert",
         iconName: "file-convert",
-        title: "Convertidor Universal",
+        title: "Convertidor universal",
         desc: "Convierte entre PDF y Word, Excel, PowerPoint o imágenes.",
-        color: "var(--c-tool-convert-color)",
-        bg: "var(--c-tool-convert-surface)",
       },
       {
         id: "ocr",
         iconName: "scan-text",
         title: "Reconocimiento OCR",
         desc: "Transforma escaneos e imágenes en texto buscable y copiable.",
-        color: "var(--c-tool-ocr-color)",
-        bg: "var(--c-tool-ocr-surface)",
       },
       {
         id: "extractImages",
         iconName: "image",
-        title: "Extraer Imágenes",
+        title: "Extraer imágenes",
         desc: "Exporta todas las fotografías e ilustraciones contenidas en el PDF.",
-        color: "var(--c-tool-extractImages-color)",
-        bg: "var(--c-tool-extractImages-surface)",
       },
       {
         id: "pdfTextEditor",
         iconName: "file-pen",
-        title: "Editar Texto en PDF",
+        title: "Editar texto en PDF",
         desc: "Modifica o agrega texto directamente en las páginas del documento.",
-        color: "var(--c-tool-pdfTextEditor-color)",
-        bg: "var(--c-tool-pdfTextEditor-surface)",
       },
     ],
   },
   {
     id: "optimize",
-    title: "Optimizar y Reparar",
+    title: "Optimizar y reparar",
     tools: [
       {
         id: "compress",
         iconName: "shrink",
         title: "Comprimir PDF",
         desc: "Reduce el peso del archivo para subirlo o enviarlo rápidamente.",
-        color: "var(--c-tool-optimize-color)",
-        bg: "var(--c-tool-optimize-surface)",
       },
       {
         id: "adjustContrast",
         iconName: "sun",
-        title: "Mejorar Contraste",
+        title: "Mejorar contraste",
         desc: "Aclara fondos oscuros y mejora la legibilidad de documentos escaneados.",
-        color: "var(--c-tool-adjustContrast-color)",
-        bg: "var(--c-tool-adjustContrast-surface)",
       },
       {
         id: "repair",
         iconName: "wrench",
-        title: "Reparar Documento",
+        title: "Reparar documento",
         desc: "Recupera y reconstruye archivos PDF dañados o corruptos que no abren.",
-        color: "var(--c-tool-repair-color)",
-        bg: "var(--c-tool-repair-surface)",
       },
       {
         id: "sanitize",
         iconName: "shield-check",
-        title: "Limpiar Metadatos",
+        title: "Limpiar metadatos",
         desc: "Remueve información oculta, historial y datos sensibles para mayor seguridad.",
-        color: "var(--c-tool-sanitize-color)",
-        bg: "var(--c-tool-sanitize-surface)",
       },
     ],
   },
   {
     id: "security",
-    title: "Seguridad y Firmas",
+    title: "Seguridad y firmas",
     tools: [
       {
         id: "sign",
         iconName: "signature",
-        title: "Firmar Documento",
+        title: "Firmar documento",
         desc: "Dibuja tu firma a mano alzada o coloca tu rúbrica en cualquier página.",
-        color: "var(--c-tool-security-color)",
-        bg: "var(--c-tool-security-surface)",
       },
       {
         id: "certSign",
         iconName: "award",
-        title: "Firma Digital (Token/DNIe)",
+        title: "Firma digital (Token/DNIe)",
         desc: "Firma con certificado digital o token con plena validez legal.",
-        color: "var(--c-tool-certSign-color)",
-        bg: "var(--c-tool-certSign-surface)",
       },
       {
         id: "addPassword",
         iconName: "lock",
-        title: "Proteger con Clave",
+        title: "Proteger con clave",
         desc: "Cifra tu PDF con contraseña para proteger tu información.",
-        color: "var(--c-tool-addPassword-color)",
-        bg: "var(--c-tool-addPassword-surface)",
       },
       {
         id: "removePassword",
         iconName: "lock-open",
         title: "Desbloquear PDF",
         desc: "Remueve la contraseña de un archivo protegido si posees autorización.",
-        color: "var(--c-tool-removePassword-color)",
-        bg: "var(--c-tool-removePassword-surface)",
       },
       {
         id: "validateSignature",
         iconName: "badge-check",
-        title: "Validar Firmas",
+        title: "Validar firmas",
         desc: "Verifica la autenticidad e integridad de firmas digitales existentes.",
-        color: "var(--c-tool-validateSignature-color)",
-        bg: "var(--c-tool-validateSignature-surface)",
       },
       {
         id: "redact",
         iconName: "eye-off",
-        title: "Tachar y Censurar",
+        title: "Tachar y censurar",
         desc: "Oculta permanentemente información privada o confidencial en el PDF.",
-        color: "var(--c-tool-redact-color)",
-        bg: "var(--c-tool-redact-surface)",
       },
       {
         id: "watermark",
         iconName: "stamp",
-        title: "Marca de Agua",
+        title: "Marca de agua",
         desc: "Agrega sellos institucionales, membretes o marcas de confidencialidad.",
-        color: "var(--c-tool-watermark-color)",
-        bg: "var(--c-tool-watermark-surface)",
       },
     ],
   },
@@ -574,6 +464,7 @@ const TOOL_SEARCH_ALIASES: Partial<Record<ToolId, string[]>> = {
 interface QuickActionsHeroProps {
   onActionClick: (toolId: ToolId, droppedFiles?: File[]) => void;
   onGeneralUpload: () => void;
+  onFilesDropped: (files: File[]) => void;
   mobileUploadEnabled?: boolean;
   onMobileUpload?: () => void;
 }
@@ -581,6 +472,7 @@ interface QuickActionsHeroProps {
 export function QuickActionsHero({
   onActionClick,
   onGeneralUpload,
+  onFilesDropped,
   mobileUploadEnabled,
   onMobileUpload,
 }: QuickActionsHeroProps) {
@@ -591,6 +483,7 @@ export function QuickActionsHero({
   const [draggedOverCardId, setDraggedOverCardId] = useState<string | null>(
     null,
   );
+  const [isDropzoneActive, setIsDropzoneActive] = useState(false);
 
   // Comprobar disponibilidad real de una herramienta según el entorno
   const isToolAvailable = (toolId: ToolId) => {
@@ -611,6 +504,19 @@ export function QuickActionsHero({
     });
     return Array.from(map.values());
   }, []);
+
+  const quickTools = useMemo(
+    () =>
+      QUICK_TOOL_IDS.map((id) => allUniqueTools.find((t) => t.id === id)).filter(
+        (t): t is SmallpdfToolItem => !!t,
+      ),
+    [allUniqueTools],
+  );
+
+  const scrollToSection = (id: string) =>
+    document
+      .getElementById(`pj-section-${id}`)
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
 
   // Lista filtrada para búsqueda en tiempo real
   const searchResults = useMemo(() => {
@@ -672,12 +578,6 @@ export function QuickActionsHero({
         type="button"
         key={item.id}
         className={`smallpdf-tool-card ${isDraggedOver ? "smallpdf-tool-card--dragover" : ""} ${!available ? "smallpdf-tool-card--disabled" : ""}`}
-        style={
-          {
-            "--tool-color": item.color,
-            "--tool-bg": item.bg,
-          } as React.CSSProperties
-        }
         onClick={() => onActionClick(item.id)}
         onDragOver={(e) => {
           if (available) handleCardDragOver(e, item.id);
@@ -690,7 +590,7 @@ export function QuickActionsHero({
         aria-disabled={!available}
       >
         <div className="smallpdf-card-icon-box">
-          <Icon name={item.iconName} size="1.65rem" />
+          <Icon name={item.iconName} size="1.35rem" />
         </div>
 
         <div className="smallpdf-card-text">
@@ -800,6 +700,71 @@ export function QuickActionsHero({
 
       {/* ── 2. CUERPO DEL PORTAL: CATÁLOGO DE TARJETAS SMALLPDF ── */}
       <div className="app-portal-body">
+        <section
+          className={`pj-dropzone ${isDropzoneActive ? "pj-dropzone--active" : ""}`}
+          onClick={onGeneralUpload}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              onGeneralUpload();
+            }
+          }}
+          onDragOver={(e) => {
+            e.preventDefault();
+            setIsDropzoneActive(true);
+          }}
+          onDragLeave={() => setIsDropzoneActive(false)}
+          onDrop={(e) => {
+            e.preventDefault();
+            setIsDropzoneActive(false);
+            const files = Array.from(e.dataTransfer.files || []);
+            if (files.length > 0) onFilesDropped(files);
+          }}
+          role="button"
+          tabIndex={0}
+          aria-label="Seleccionar o arrastrar archivos"
+        >
+          <span className="pj-dropzone-icon">
+            <Icon name="cloud-upload" size="1.6rem" />
+          </span>
+          <span className="pj-dropzone-text">
+            <strong>Arrastra tus archivos aquí</strong>
+            <span>o haz clic para seleccionarlos · PDF, Word, Excel, imágenes</span>
+          </span>
+        </section>
+
+        {!searchTerm && (
+          <nav className="pj-quickbar" aria-label="Accesos rápidos">
+            <div className="pj-quickbar-row">
+              <span className="pj-quickbar-label">Accesos rápidos</span>
+              {quickTools.map((tool) => (
+                <button
+                  key={tool.id}
+                  type="button"
+                  className="pj-quick-chip"
+                  onClick={() => onActionClick(tool.id)}
+                  disabled={!isToolAvailable(tool.id)}
+                >
+                  <Icon name={tool.iconName} size="1rem" />
+                  {tool.title}
+                </button>
+              ))}
+            </div>
+            <div className="pj-quickbar-row pj-quickbar-row--sections">
+              {TOOL_SECTIONS.map((section) => (
+                <button
+                  key={section.id}
+                  type="button"
+                  className="pj-section-link"
+                  onClick={() => scrollToSection(section.id)}
+                >
+                  {section.title}
+                </button>
+              ))}
+            </div>
+          </nav>
+        )}
+
         <main className="smallpdf-catalog-container">
           {/* CASO A: BÚSQUEDA ACTIVA */}
           {searchTerm ? (
@@ -843,7 +808,11 @@ export function QuickActionsHero({
           ) : (
             /* CASO B: PORTAL PRINCIPAL ORGANIZADO POR SECCIONES (ESTILO SMALLPDF) */
             TOOL_SECTIONS.map((section) => (
-              <section key={section.id} className="smallpdf-section">
+              <section
+                key={section.id}
+                id={`pj-section-${section.id}`}
+                className="smallpdf-section"
+              >
                 <div className="smallpdf-section-header">
                   <h2 className="smallpdf-section-title">{section.title}</h2>
                 </div>
@@ -859,7 +828,7 @@ export function QuickActionsHero({
         <footer className="app-portal-signature">
           <div className="portal-footer-signature-content">
             <img
-              src="/oid-tec.webp"
+              src={withBasePath("/oid-tec.webp")}
               alt="Informática - CSJLA"
               className="portal-footer-oid-logo"
             />
