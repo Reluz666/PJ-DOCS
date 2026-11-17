@@ -78,7 +78,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
             // Check if this is a public endpoint BEFORE validating JWT
             // This allows public endpoints to work even with expired tokens in the request
-            if (isPublicAuthEndpoint(requestURI, contextPath)) {
+            // PJ-DOCS: allowAnonymous lets token-less requests through (admin APIs still
+            // guarded by @PreAuthorize)
+            if (isPublicAuthEndpoint(requestURI, contextPath)
+                    || (jwtToken == null && securityProperties.isAllowAnonymous())) {
                 // For public auth endpoints, skip JWT validation and continue
                 filterChain.doFilter(request, response);
                 return;
