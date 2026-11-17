@@ -5,6 +5,99 @@
 :root,
 [data-theme="light"],
 html[data-app-theme="light"] {
+  --c-amber-50: var(--p-amber-50);
+  --c-amber-600: var(--p-amber-600);
+  --c-blue-50: var(--p-blue-50);
+  --c-blue-600: var(--p-blue-600);
+  --c-blue-700: var(--p-blue-700);
+  --c-c-334155: var(--p-c-334155);
+  --c-c-475569: var(--p-c-475569);
+  --c-c-f1f5f9: var(--p-c-f1f5f9);
+  --c-csjla-gold-100: var(--p-csjla-gold-100);
+  --c-csjla-gold-200: var(--p-csjla-gold-200);
+  --c-csjla-gold-400: var(--p-csjla-gold-400);
+  --c-csjla-gold-50: var(--p-csjla-gold-50);
+  --c-csjla-gold-500: var(--p-csjla-gold-500);
+  --c-csjla-gold-600: var(--p-csjla-gold-600);
+  --c-csjla-gray-100: var(--p-csjla-gray-100);
+  --c-csjla-gray-300: var(--p-csjla-gray-300);
+  --c-csjla-gray-50: var(--p-csjla-gray-50);
+  --c-csjla-gray-700: var(--p-csjla-gray-700);
+  --c-csjla-gray-900: var(--p-csjla-gray-900);
+  --c-csjla-guinda-100: var(--p-csjla-guinda-100);
+  --c-csjla-guinda-200: var(--p-csjla-guinda-200);
+  --c-csjla-guinda-300: var(--p-csjla-guinda-300);
+  --c-csjla-guinda-50: var(--p-csjla-guinda-50);
+  --c-csjla-guinda-600: var(--p-csjla-guinda-600);
+  --c-csjla-guinda-700: var(--p-csjla-guinda-700);
+  --c-csjla-guinda-800: var(--p-csjla-guinda-800);
+  --c-csjla-guinda-900: var(--p-csjla-guinda-900);
+  --c-csjla-guinda-950: var(--p-csjla-guinda-950);
+  --c-emerald-600: var(--p-emerald-600);
+  --c-gray-200: var(--p-gray-200);
+  --c-gray-454545: var(--p-gray-454545);
+  --c-gray-737373: var(--p-gray-737373);
+  --c-gray-999999: var(--p-gray-999999);
+  --c-green-50: var(--p-green-50);
+  --c-green-600: var(--p-green-600);
+  --c-indigo-600: var(--p-indigo-600);
+  --c-red-50: var(--p-red-50);
+  --c-red-500: var(--p-red-500);
+  --c-red-600: var(--p-red-600);
+  --c-violet-600: var(--p-violet-600);
+
+  /* Tool-card accents are stable categories, independent of the active theme. */
+  --c-tool-pdfTextEditor-color: var(--c-violet-600);
+  --c-tool-pdfTextEditor-surface: var(--p-tool-violet-surface);
+  --c-tool-compress-color: var(--p-tool-rose);
+  --c-tool-compress-surface: var(--p-tool-rose-surface);
+  --c-tool-split-color: var(--p-tool-orange);
+  --c-tool-split-surface: var(--p-tool-orange-surface);
+  --c-tool-convert-color: var(--c-emerald-600);
+  --c-tool-convert-surface: var(--p-tool-green-surface);
+  --c-tool-merge-color: var(--c-blue-600);
+  --c-tool-merge-surface: var(--c-blue-50);
+  --c-tool-extractPages-color: var(--c-indigo-600);
+  --c-tool-extractPages-surface: var(--p-tool-indigo-surface);
+  --c-tool-addPageNumbers-color: var(--c-csjla-gold-500);
+  --c-tool-addPageNumbers-surface: var(--c-csjla-gold-50);
+  --c-tool-removePages-color: var(--c-red-600);
+  --c-tool-removePages-surface: var(--c-red-50);
+  --c-tool-popular-color: var(--c-blue-600);
+  --c-tool-popular-surface: var(--c-blue-50);
+  --c-tool-rotate-color: var(--p-tool-teal);
+  --c-tool-rotate-surface: var(--p-tool-teal-surface);
+  --c-tool-crop-color: var(--p-tool-cyan);
+  --c-tool-crop-surface: var(--p-tool-cyan-surface);
+  --c-tool-flatten-color: var(--c-c-475569);
+  --c-tool-flatten-surface: var(--c-c-f1f5f9);
+  --c-tool-ocr-color: var(--p-tool-sky);
+  --c-tool-ocr-surface: var(--p-tool-sky-surface);
+  --c-tool-extractImages-color: var(--p-tool-pink);
+  --c-tool-extractImages-surface: var(--p-tool-pink-surface);
+  --c-tool-optimize-color: var(--p-tool-rose);
+  --c-tool-optimize-surface: var(--p-tool-rose-surface);
+  --c-tool-adjustContrast-color: var(--c-amber-600);
+  --c-tool-adjustContrast-surface: var(--c-amber-50);
+  --c-tool-repair-color: var(--c-blue-600);
+  --c-tool-repair-surface: var(--c-blue-50);
+  --c-tool-sanitize-color: var(--c-green-600);
+  --c-tool-sanitize-surface: var(--c-green-50);
+  --c-tool-security-color: var(--c-violet-600);
+  --c-tool-security-surface: var(--p-tool-violet-surface);
+  --c-tool-certSign-color: var(--c-blue-700);
+  --c-tool-certSign-surface: var(--c-blue-50);
+  --c-tool-addPassword-color: var(--c-csjla-guinda-800);
+  --c-tool-addPassword-surface: var(--c-csjla-guinda-50);
+  --c-tool-removePassword-color: var(--c-red-500);
+  --c-tool-removePassword-surface: var(--c-red-50);
+  --c-tool-validateSignature-color: var(--c-emerald-600);
+  --c-tool-validateSignature-surface: var(--p-tool-green-surface);
+  --c-tool-redact-color: var(--c-c-334155);
+  --c-tool-redact-surface: var(--c-c-f1f5f9);
+  --c-tool-watermark-color: var(--p-tool-cyan);
+  --c-tool-watermark-surface: var(--p-tool-cyan-surface);
+
   --c-bg: var(--p-paper);
   --c-bg-raised: var(--p-white);
   --c-surface: var(--p-snow);
@@ -32,11 +125,11 @@ html[data-app-theme="light"] {
   --c-border-subtle: var(--p-gray-200);
   --c-border-strong: var(--p-gray-400);
 
-  --c-primary: #8b1a2b;
-  --c-primary-hover: #751b28;
-  --c-primary-subtle: color-mix(in srgb, #8b1a2b 12%, transparent);
+  --c-primary: var(--p-csjla-guinda-800);
+  --c-primary-hover: var(--p-csjla-guinda-900);
+  --c-primary-subtle: color-mix(in srgb, var(--c-primary) 12%, transparent);
   /* Accent used as TEXT (links, toggles) */
-  --c-accent-text: #8b1a2b;
+  --c-accent-text: var(--p-csjla-guinda-800);
 
   --c-success: var(--p-green-600);
   --c-danger: var(--p-red-600);
@@ -50,12 +143,12 @@ html[data-app-theme="light"] {
   --c-danger-solid: var(--p-red-700);
   --c-warning-solid: var(--p-amber-700);
   --c-neutral-solid: var(--p-gray-600);
-  --c-accent-solid: #8b1a2b;
+  --c-accent-solid: var(--p-csjla-guinda-800);
   /* Ink for surfaces that are white in both schemes — a rendered page, a
      signature sheet. Scheme-independent for the same reason the fills above
      are: the ground does not change, so the ink must not either. */
   --c-text-on-light: var(--p-ink);
-  --c-accent-on-light: #751b28;
+  --c-accent-on-light: var(--p-csjla-guinda-900);
   --c-document-bg: var(--p-white);
   /* Highlight/flash (search hits, compare jump-to) — same in both themes. */
   --c-highlight: var(--p-flash-yellow);
@@ -130,7 +223,7 @@ html[data-app-theme="light"] {
   --c-illustration-line-strong: var(--p-gray-300);
 
   /* Viewer active file-tab tint base. */
-  --c-tab-active-tint: #f9e1e4;
+  --c-tab-active-tint: var(--p-csjla-guinda-100);
 
   /* Themed: file-card resting/unselected header (branded navy). */
   --c-file-header-resting: var(--p-navy-500);
@@ -165,7 +258,7 @@ html[data-app-theme="midnight"] {
   --c-text-on-primary: var(--p-white);
   --c-mark-mono: var(--p-white);
   /* Accent used as TEXT on dark surfaces: a lighter step for 4.5:1. */
-  --c-accent-text: #efa0a9;
+  --c-accent-text: var(--p-csjla-guinda-300);
   --c-btn-solid: var(--c-text);
   --c-btn-inverse: var(--p-ink);
   --c-btn-secondary: var(--p-c-1a1a1d);
@@ -175,9 +268,9 @@ html[data-app-theme="midnight"] {
   --c-border-subtle: rgba(255, 255, 255, 0.05);
   --c-border-strong: var(--p-zinc-500);
 
-  --c-primary: #8b1a2b;
-  --c-primary-hover: #a5283b;
-  --c-primary-subtle: color-mix(in srgb, #8b1a2b 25%, transparent);
+  --c-primary: var(--p-csjla-guinda-800);
+  --c-primary-hover: var(--p-csjla-guinda-hover-dark);
+  --c-primary-subtle: color-mix(in srgb, var(--c-primary) 25%, transparent);
 
   --c-success: var(--p-green-500);
   --c-danger: var(--p-red-500);
@@ -197,14 +290,14 @@ html[data-app-theme="midnight"] {
 
 /* ── Base accent — fixed default (blue buttons); [data-accent="default"] blocks at the end keep surfaces neutral. LIGHT base here, DARK base next. ── */
 html[data-app-theme="custom"] {
-  --c-primary: #8b1a2b;
+  --c-primary: var(--p-csjla-guinda-800);
   /* Also the accent text colour (--_text), so 80% keeps 4.5:1 on the canvas. */
   --c-primary-hover: color-mix(in srgb, var(--c-primary) 80%, var(--p-black));
   --c-primary-subtle: color-mix(in srgb, var(--c-primary) 14%, transparent);
   --c-text-on-primary: var(--p-white);
   --c-accent-fg: var(--c-accent-text);
   /* Accent used as TEXT */
-  --c-accent-text: #8b1a2b;
+  --c-accent-text: var(--p-csjla-guinda-800);
 
   /* Primary-tinted surfaces (light base). Neutralised by the default override. */
   --c-bg: color-mix(in srgb, var(--c-primary) 7%, var(--p-paper));
@@ -322,7 +415,7 @@ html[data-app-theme="custom"] {
 
 /* ── DARK — editor dark theme: neutral text/borders/icons + accent-tinted surfaces (default override opts out). After :root so it wins for dark. ── */
 html[data-app-theme="custom"][data-mantine-color-scheme="dark"] {
-  --c-accent-text: #efa0a9;
+  --c-accent-text: var(--p-csjla-guinda-300);
   /* Shade 600 is the ramp's text-capable step (Mantine's shade 6 — link colour
      and the tuple's default text). The light theme reaches it by mixing toward
      black; on a dark ground it has to travel the other way to stay readable. */

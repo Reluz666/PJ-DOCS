@@ -4,30 +4,29 @@
    ============================================================ */
 
 :root {
-  --csjla-guinda-50: #fdf2f3;
-  --csjla-guinda-100: #f9e1e4;
-  --csjla-guinda-200: #f5c8cd;
-  --csjla-guinda-300: #efa0a9;
-  --csjla-guinda-600: #c41e3a;
-  --csjla-guinda-700: #a61730;
-  --csjla-guinda-800: #8b1a2b;  /* Guinda institucional CSJLA */
-  --csjla-guinda-900: #751b28;
-  --csjla-guinda-950: #400a13;
-
-  --csjla-gold-50: #faf7ee;
-  --csjla-gold-100: #f5eed3;
-  --csjla-gold-200: #e5d6a0;
-  --csjla-gold-400: #c9a96e;
-  --csjla-gold-500: #b8924a;   /* Oro institucional CSJLA */
-  --csjla-gold-600: #9e753c;
+  --csjla-guinda-50: var(--c-csjla-guinda-50);
+  --csjla-guinda-100: var(--c-csjla-guinda-100);
+  --csjla-guinda-200: var(--c-csjla-guinda-200);
+  --csjla-guinda-300: var(--c-csjla-guinda-300);
+  --csjla-guinda-600: var(--c-csjla-guinda-600);
+  --csjla-guinda-700: var(--c-csjla-guinda-700);
+  --csjla-guinda-800: var(--c-csjla-guinda-800);
+  --csjla-guinda-900: var(--c-csjla-guinda-900);
+  --csjla-guinda-950: var(--c-csjla-guinda-950);
+  --csjla-gold-50: var(--c-csjla-gold-50);
+  --csjla-gold-100: var(--c-csjla-gold-100);
+  --csjla-gold-200: var(--c-csjla-gold-200);
+  --csjla-gold-400: var(--c-csjla-gold-400);
+  --csjla-gold-500: var(--c-csjla-gold-500);
+  --csjla-gold-600: var(--c-csjla-gold-600);
 
   --csjla-surface: #ffffff;
-  --csjla-gray-50: #faf9f7;
-  --csjla-gray-100: #f4f2ee;
-  --csjla-gray-200: #e5e7eb;
-  --csjla-gray-300: #cbcdc5;
-  --csjla-gray-700: #4a453e;
-  --csjla-gray-900: #191919;
+  --csjla-gray-50: var(--c-csjla-gray-50);
+  --csjla-gray-100: var(--c-csjla-gray-100);
+  --csjla-gray-200: var(--c-gray-200);
+  --csjla-gray-300: var(--c-csjla-gray-300);
+  --csjla-gray-700: var(--c-csjla-gray-700);
+  --csjla-gray-900: var(--c-csjla-gray-900);
 
   --c-primary: var(--csjla-guinda-800);
   --c-primary-hover: var(--csjla-guinda-900);
@@ -41,7 +40,11 @@
   display: flex;
   flex-direction: column;
   background: var(--c-bg);
-  font-family: "Plus Jakarta Sans", "Inter", -apple-system, sans-serif;
+  font-family:
+    "Plus Jakarta Sans",
+    "Inter",
+    -apple-system,
+    sans-serif;
 }
 
 /* ── 1. Cabecera Institucional Continua (Seamless Top Bar) ── */
@@ -107,21 +110,15 @@
   letter-spacing: -0.02em;
   line-height: 1.1;
   margin: 0;
-  font-family: "Plus Jakarta Sans", "Inter", -apple-system, sans-serif;
+  font-family:
+    "Plus Jakarta Sans",
+    "Inter",
+    -apple-system,
+    sans-serif;
 }
 
 [data-theme="dark"] .app-pjdocs-title {
-  color: #f5c8cd;
-}
-
-/* ── 2. Centro: Buscador de Herramientas ── */
-.app-search-box {
-  flex: 1;
-  max-width: 28rem;
-  min-width: 14rem;
-  position: relative;
-  display: flex;
-  align-items: center;
+  color: var(--c-csjla-guinda-200);
 }
 
 /* ── 3. Lado Derecho: Acciones + Escudo CSJLA (Extremo Derecho) ── */
@@ -135,14 +132,14 @@
 .app-header-court-divider {
   width: 1.5px;
   height: 2.25rem;
-  background: var(--csjla-gray-300, #cbcdc5);
+  background: var(--csjla-gray-300, var(--c-csjla-gray-300));
   border-radius: 1px;
   opacity: 0.75;
   flex-shrink: 0;
 }
 
 [data-theme="dark"] .app-header-court-divider {
-  background: var(--c-border, #454545);
+  background: var(--c-border, var(--c-gray-454545));
   opacity: 0.65;
 }
 
@@ -197,6 +194,9 @@
 
 /* Buscador en Vivo Unificado */
 .app-search-box {
+  flex: 1;
+  min-width: 14rem;
+  position: relative;
   display: flex;
   align-items: center;
   gap: 0.55rem;
@@ -217,7 +217,8 @@
 
 .app-search-box:focus-within {
   border-color: var(--csjla-guinda-800);
-  box-shadow: 0 0 0 3px rgba(139, 26, 43, 0.12);
+  box-shadow: 0 0 0 3px
+    color-mix(in srgb, var(--c-csjla-guinda-800) 12%, transparent);
 }
 
 .app-search-icon {
@@ -270,14 +271,16 @@
   border: none;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 8px rgba(139, 26, 43, 0.2);
+  box-shadow: 0 2px 8px
+    color-mix(in srgb, var(--c-csjla-guinda-800) 20%, transparent);
   white-space: nowrap;
 }
 
 .app-header-open-btn:hover {
   background: var(--csjla-guinda-900);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(139, 26, 43, 0.28);
+  box-shadow: 0 4px 12px
+    color-mix(in srgb, var(--c-csjla-guinda-800) 28%, transparent);
 }
 
 .app-header-mobile-btn {
@@ -405,9 +408,9 @@
 }
 
 [data-theme="dark"] .smallpdf-section-badge {
-  color: #f5c8cd;
-  background: rgba(139, 26, 43, 0.25);
-  border-color: rgba(229, 109, 123, 0.35);
+  color: var(--c-csjla-guinda-200);
+  background: color-mix(in srgb, var(--c-csjla-guinda-800) 25%, transparent);
+  border-color: color-mix(in srgb, var(--c-csjla-guinda-300) 35%, transparent);
 }
 
 /* Cuadrícula Multi-Columna Smallpdf */
@@ -430,6 +433,9 @@
 
 /* ── Tarjeta Smallpdf (Mosaico Limpio y Amigable) ─────────── */
 .smallpdf-tool-card {
+  appearance: none;
+  font: inherit;
+  color: inherit;
   position: relative;
   background: var(--c-surface, #ffffff);
   border: 1px solid var(--csjla-gray-200);
@@ -441,10 +447,11 @@
   text-align: left;
   gap: 0.95rem;
   cursor: pointer;
-  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.2s ease,
-              background-color 0.2s ease;
+  transition:
+    transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.2s ease,
+    background-color 0.2s ease;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
   overflow: hidden;
   user-select: none;
@@ -458,12 +465,14 @@
 .smallpdf-tool-card:hover {
   transform: translateY(-4px);
   border-color: var(--tool-color, var(--csjla-guinda-800));
-  box-shadow: 0 12px 28px -4px rgba(0, 0, 0, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.04);
+  box-shadow:
+    0 12px 28px -4px rgba(0, 0, 0, 0.08),
+    0 4px 12px -2px rgba(0, 0, 0, 0.04);
 }
 
 [data-theme="dark"] .smallpdf-tool-card:hover {
   box-shadow: 0 12px 28px -4px rgba(0, 0, 0, 0.35);
-  border-color: var(--tool-color, #f5c8cd);
+  border-color: var(--tool-color, var(--c-csjla-guinda-200));
 }
 
 /* Drag & Drop directo sobre la tarjeta */
@@ -480,8 +489,8 @@
   width: 3.25rem;
   height: 3.25rem;
   border-radius: 12px;
-  background: var(--tool-bg, #eff6ff);
-  color: var(--tool-color, #2563eb);
+  background: var(--tool-bg, var(--c-blue-50));
+  color: var(--tool-color, var(--c-blue-600));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -541,7 +550,7 @@
   gap: 0.35rem;
   padding: 0.35rem 0.65rem;
   border-radius: 8px;
-  background: var(--tool-color, #2563eb);
+  background: var(--tool-color, var(--c-blue-600));
   color: #ffffff;
   font-size: 0.78rem;
   font-weight: 700;
@@ -628,7 +637,9 @@
   object-fit: contain;
   opacity: 0.85;
   filter: grayscale(15%);
-  transition: opacity 0.2s ease, filter 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    filter 0.2s ease;
 }
 
 .portal-footer-signature-content:hover .portal-footer-oid-logo {
@@ -638,11 +649,11 @@
 
 .portal-footer-signature-text {
   font-size: 0.8rem;
-  color: var(--c-text-muted, #737373);
+  color: var(--c-text-muted, var(--c-gray-737373));
   font-weight: 500;
   letter-spacing: 0.015em;
 }
 
 [data-theme="dark"] .portal-footer-signature-text {
-  color: #999999;
+  color: var(--c-gray-999999);
 }

@@ -69,6 +69,64 @@
   --p-red-500: #ef4444;
   --p-red-600: #dc2626;
   --p-red-700: #b91c1c;
+  --p-csjla-guinda-50: #fdf2f3;
+  --p-csjla-guinda-100: #f9e1e4;
+  --p-csjla-guinda-200: #f5c8cd;
+  --p-csjla-guinda-300: #efa0a9;
+  --p-csjla-guinda-600: #c41e3a;
+  --p-csjla-guinda-700: #a61730;
+  --p-csjla-guinda-800: #8b1a2b;
+  --p-csjla-guinda-900: #751b28;
+  --p-csjla-guinda-950: #400a13;
+  --p-csjla-guinda-950-deep: #330b11;
+  --p-csjla-guinda-950-soft: #4a1019;
+  --p-csjla-guinda-900-deep: #5c141f;
+  --p-csjla-guinda-hover-dark: #a5283b;
+  --p-csjla-gray-50: #faf9f7;
+  --p-csjla-gray-100: #f4f2ee;
+  --p-csjla-gray-300: #cbcdc5;
+  --p-csjla-gray-700: #4a453e;
+  --p-csjla-gray-900: #191919;
+  --p-gray-454545: #454545;
+  --p-gray-737373: #737373;
+  --p-gray-999999: #999999;
+  --p-blue-50: #eff6ff;
+  --p-csjla-gold-50: #faf7ee;
+  --p-csjla-gold-100: #f5eed3;
+  --p-csjla-gold-200: #e5d6a0;
+  --p-csjla-gold-400: #c9a96e;
+  --p-csjla-gold-500: #b8924a;
+  --p-csjla-gold-600: #9e753c;
+
+  --p-tool-sky: #0284c7;
+
+  --p-tool-cyan: #0891b2;
+
+  --p-tool-teal: #0d9488;
+
+  --p-tool-pink: #db2777;
+
+  --p-tool-rose: #e11d48;
+
+  --p-tool-orange: #ea580c;
+
+  --p-tool-green-surface: #ecfdf5;
+
+  --p-tool-cyan-surface: #ecfeff;
+
+  --p-tool-indigo-surface: #eef2ff;
+
+  --p-tool-sky-surface: #f0f9ff;
+
+  --p-tool-teal-surface: #f0fdfa;
+
+  --p-tool-violet-surface: #f5f3ff;
+
+  --p-tool-pink-surface: #fdf2f8;
+
+  --p-tool-rose-surface: #fff1f2;
+
+  --p-tool-orange-surface: #fff7ed;
 
   /* Brand-red + ai-accent scales, consumed by core/ui/accents.css. */
   --p-brand-red-200: #d9a8a8;

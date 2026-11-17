@@ -72,7 +72,6 @@ const LandingPage = () => {
       <QuickActionsHero
         onActionClick={handleActionClick}
         onGeneralUpload={() => void handleNativeUploadClick()}
-        onFilesDropped={(files) => void addFiles(files)}
         mobileUploadEnabled={!!config?.enableMobileScanner && !isMobile}
         onMobileUpload={() => setMobileUploadModalOpen(true)}
       />

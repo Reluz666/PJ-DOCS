@@ -157,7 +157,8 @@
 .quick-nav-rail-item[aria-pressed="true"]:hover {
   background: var(--c-primary);
   color: #ffffff;
-  box-shadow: 0 2px 8px rgba(139, 26, 43, 0.25);
+  box-shadow: 0 2px 8px
+    color-mix(in srgb, var(--c-csjla-guinda-800) 25%, transparent);
 }
 
 /* On a dark ground full ink is white, so mix the block back toward the surface. */

@@ -45,7 +45,9 @@
   border-radius: var(--radius-md, 0.375rem);
   color: var(--c-text-muted);
   cursor: pointer;
-  transition: color 0.15s ease, background-color 0.15s ease;
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease;
   padding: 0;
 }
 
@@ -55,6 +57,6 @@
 }
 
 .quick-nav-rail-account[data-active] .quick-nav-rail-settings-btn {
-  background-color: var(--c-primary-subtle, #fdf2f3);
+  background-color: var(--c-primary-subtle, var(--c-csjla-guinda-50));
   color: var(--c-primary, var(--csjla-guinda-800));
 }

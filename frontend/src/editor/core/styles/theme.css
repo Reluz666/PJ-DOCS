@@ -76,16 +76,16 @@
   --border: 229 231 235;
 
   /* Colors for Mantine integration - Paleta Institucional CSJLA */
-  --color-primary-50: #fdf2f3;
-  --color-primary-100: #f9e1e4;
-  --color-primary-200: #f5c8cd;
-  --color-primary-300: #efa0a9;
-  --color-primary-400: #c41e3a;
-  --color-primary-500: #8b1a2b;
-  --color-primary-600: #751b28;
-  --color-primary-700: #5c141f;
-  --color-primary-800: #4a1019;
-  --color-primary-900: #330b11;
+  --color-primary-50: var(--p-csjla-guinda-50);
+  --color-primary-100: var(--p-csjla-guinda-100);
+  --color-primary-200: var(--p-csjla-guinda-200);
+  --color-primary-300: var(--p-csjla-guinda-300);
+  --color-primary-400: var(--p-csjla-guinda-600);
+  --color-primary-500: var(--p-csjla-guinda-800);
+  --color-primary-600: var(--p-csjla-guinda-900);
+  --color-primary-700: var(--p-csjla-guinda-900-deep);
+  --color-primary-800: var(--p-csjla-guinda-950-soft);
+  --color-primary-900: var(--p-csjla-guinda-950-deep);
 
   /* Success (green) */
   --color-green-50: var(--p-green-50);
@@ -114,10 +114,13 @@
   ); /* Purple for formatting tools */
   --category-color-extraction: var(
     --csjla-guinda-800,
-    #8b1a2b
+    var(--p-csjla-guinda-800)
   ); /* Guinda for extraction tools */
   --category-color-signing: var(--p-green-500); /* Green for signing tools */
-  --category-color-general: var(--csjla-guinda-800, #8b1a2b); /* Guinda for general tools */
+  --category-color-general: var(
+    --csjla-guinda-800,
+    var(--p-csjla-guinda-800)
+  ); /* Guinda for general tools */
   --category-color-verification: var(
     --p-amber-600
   ); /* Orange for verification tools */
@@ -127,7 +130,10 @@
 
   /* Special section colors - consistent across light and dark modes */
   --special-color-favorites: var(--p-amber-400); /* Yellow/gold for favorites */
-  --special-color-recommended: var(--csjla-gold-500, #b8924a); /* Gold for recommended */
+  --special-color-recommended: var(
+    --csjla-gold-500,
+    var(--p-csjla-gold-500)
+  ); /* Gold for recommended */
   --color-yellow-500: var(--p-amber-500);
   --color-yellow-600: var(--p-amber-600);
   --color-yellow-700: var(--p-amber-600);
@@ -203,18 +209,24 @@
 
   /* container */
   --landing-button-bg: var(--c-surface);
-  --landing-button-border: var(--csjla-guinda-300, #efa0a9);
+  --landing-button-border: var(--csjla-guinda-300, var(--p-csjla-guinda-300));
   --landing-button-hover-bg: var(--p-gray-50);
 
   /* drop state */
-  --landing-drop-inner-paper-bg: var(--csjla-guinda-200, #f5c8cd);
-  --landing-drop-inner-paper-border: var(--csjla-guinda-300, #efa0a9);
+  --landing-drop-inner-paper-bg: var(
+    --csjla-guinda-200,
+    var(--p-csjla-guinda-200)
+  );
+  --landing-drop-inner-paper-border: var(
+    --csjla-guinda-300,
+    var(--p-csjla-guinda-300)
+  );
 
   /* landing hero & stack */
   --landing-hero-gradient: linear-gradient(
     135deg,
-    var(--csjla-guinda-800, #8b1a2b) 0%,
-    var(--csjla-guinda-900, #751b28) 100%
+    var(--csjla-guinda-800, var(--p-csjla-guinda-800)) 0%,
+    var(--csjla-guinda-900, var(--p-csjla-guinda-900)) 100%
   );
   --landing-stack-w: 224px;
   --landing-stack-h: 176px;
@@ -326,9 +338,18 @@
   --link-hover-border: color-mix(in srgb, var(--c-primary) 32%, transparent);
   --link-hover-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.35),
-    0 1px 4px color-mix(in srgb, var(--csjla-guinda-800, #8b1a2b) 12%, transparent);
+    0 1px 4px
+      color-mix(
+        in srgb,
+        var(--csjla-guinda-800, var(--p-csjla-guinda-800)) 12%,
+        transparent
+      );
   --link-focus-ring: color-mix(in srgb, var(--c-primary) 25%, transparent);
-  --link-toolbar-bg: color-mix(in srgb, var(--c-primary-hover) 88%, transparent);
+  --link-toolbar-bg: color-mix(
+    in srgb,
+    var(--c-primary-hover) 88%,
+    transparent
+  );
   --link-toolbar-border: rgba(255, 255, 255, 0.1);
   --link-toolbar-shadow:
     0 12px 40px rgba(0, 0, 0, 0.2), 0 4px 12px rgba(0, 0, 0, 0.16),
@@ -392,10 +413,10 @@
   /* Category colors - same as light mode for consistency */
   --category-color-removal: var(--p-red-500); /* Red for removal tools */
   --category-color-security: var(--p-amber-500); /* Orange for security tools */
-  --category-color-formatting: #efa0a9;
-  --category-color-extraction: #f5c8cd;
+  --category-color-formatting: var(--p-csjla-guinda-300);
+  --category-color-extraction: var(--p-csjla-guinda-200);
   --category-color-signing: var(--p-green-500); /* Green for signing tools */
-  --category-color-general: #efa0a9;
+  --category-color-general: var(--p-csjla-guinda-300);
   --category-color-verification: var(
     --p-amber-600
   ); /* Orange for verification tools */
@@ -405,7 +426,7 @@
 
   /* Special section colors - same as light mode for consistency */
   --special-color-favorites: var(--p-amber-400); /* Yellow/gold for favorites */
-  --special-color-recommended: var(--csjla-gold-500, #b8924a);
+  --special-color-recommended: var(--csjla-gold-500, var(--p-csjla-gold-500));
 
   /* Success (green) - dark */
   --color-green-50: var(--p-zinc-775);
@@ -440,8 +461,8 @@
 
   /* Icon colors for dark mode */
   --icon-tools-bg: var(--p-zinc-650);
-  --icon-tools-color: #efa0a9;
-  --icon-files-color: #efa0a9;
+  --icon-tools-color: var(--p-csjla-guinda-300);
+  --icon-files-color: var(--p-csjla-guinda-300);
 
   /* Inactive icon colors for dark mode */
   --icon-inactive-bg: var(--p-zinc-800);
@@ -478,12 +499,20 @@
   --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.5);
 
   /* PDF text selection colors (dark mode) */
-  --pdf-selection-bg: color-mix(in srgb, #8b1a2b 25%, transparent);
-  --pdf-selection-ring: color-mix(in srgb, #8b1a2b 28%, transparent);
+  --pdf-selection-bg: color-mix(
+    in srgb,
+    var(--p-csjla-guinda-800) 25%,
+    transparent
+  );
+  --pdf-selection-ring: color-mix(
+    in srgb,
+    var(--p-csjla-guinda-800) 28%,
+    transparent
+  );
 
   /* Tool panel search bar background colors (dark mode) */
 
-  --information-text-color: #efa0a9;
+  --information-text-color: var(--p-csjla-guinda-300);
 
   /* dark background for cards */
   --bulk-card-border: var(
@@ -505,10 +534,10 @@
   /* Migrated from the former saas-theme.css (dark) — see the light block. */
   --modal-nav-bg: var(--p-zinc-850);
   --modal-nav-section-title: var(--p-zinc-300);
-  --modal-nav-item-active: #efa0a9;
+  --modal-nav-item-active: var(--p-csjla-guinda-300);
   --modal-nav-item-active-bg: color-mix(
     in srgb,
-    #8b1a2b 25%,
+    var(--p-csjla-guinda-800) 25%,
     transparent
   );
   --modal-content-bg: var(--p-zinc-800);
@@ -549,13 +578,29 @@
   --dropdown-group-label: var(--mantine-color-dark-2);
 
   /* PDF Link Overlay (viewer) */
-  --link-hover-bg: color-mix(in srgb, #8b1a2b 14%, transparent);
-  --link-hover-border: color-mix(in srgb, #8b1a2b 38%, transparent);
+  --link-hover-bg: color-mix(
+    in srgb,
+    var(--p-csjla-guinda-800) 14%,
+    transparent
+  );
+  --link-hover-border: color-mix(
+    in srgb,
+    var(--p-csjla-guinda-800) 38%,
+    transparent
+  );
   --link-hover-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.1),
-    0 1px 4px color-mix(in srgb, #8b1a2b 18%, transparent);
-  --link-focus-ring: color-mix(in srgb, #8b1a2b 30%, transparent);
-  --link-toolbar-bg: color-mix(in srgb, #751b28 94%, transparent);
+    0 1px 4px color-mix(in srgb, var(--p-csjla-guinda-800) 18%, transparent);
+  --link-focus-ring: color-mix(
+    in srgb,
+    var(--p-csjla-guinda-800) 30%,
+    transparent
+  );
+  --link-toolbar-bg: color-mix(
+    in srgb,
+    var(--p-csjla-guinda-900) 94%,
+    transparent
+  );
   --link-toolbar-border: rgba(255, 255, 255, 0.07);
   --link-toolbar-shadow:
     0 12px 40px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.35),
