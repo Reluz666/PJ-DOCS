@@ -230,8 +230,7 @@ export default function HomePage() {
   useEffect(() => {
     if (derivedFromPath.current === location.pathname) return;
     if (location.pathname.startsWith("/files")) {
-      navigate("/", { replace: true });
-      return;
+      if (navigationState.workbench !== "myFiles") actions.setWorkbench("myFiles");
     } else if (location.pathname === "/shared-sign") {
       actions.setToolAndWorkbench(null, "signing");
     } else if (
