@@ -761,8 +761,6 @@ export default function HomePage() {
                     </div>
                   </div>
                 </div>
-                  </span>
-                )}
               </div>
             )}
             {mobileNavigation}
