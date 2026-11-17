@@ -50,7 +50,6 @@ import {
   useSuppressQuickNavRail,
   type QuickNavToolReasons,
 } from "@editor/contexts/QuickNavHostContext";
-import { SignMenu } from "@editor/components/shared/signing/SignMenu";
 import { useOpenSigning } from "@editor/hooks/signing/useOpenSigning";
 import { usePreferences } from "@editor/contexts/PreferencesContext";
 import {
@@ -163,7 +162,6 @@ export default function HomePage() {
   const { requestNavigation } = useNavigationGuard();
   const quickNavHost = useQuickNavHost();
   const openSigning = useOpenSigning();
-  const [mobileSignOpen, setMobileSignOpen] = useState(false);
 
   // From the processor's Reader entry. Ref-guarded: one-shot, and StrictMode double-invokes.
   const consumedReaderRequest = useRef(false);
@@ -606,42 +604,18 @@ export default function HomePage() {
 
   const mobileNavigation = (
     <div className="mobile-bottom-bar">
-      <SignMenu
-        opened={mobileSignOpen}
-        onClose={() => setMobileSignOpen(false)}
-        reasons={quickNavHost?.toolReasons ?? {}}
-        items={quickNavHost?.signingItems ?? []}
-        onOpenSigning={openSigning}
-        onSelect={(tool) => {
-          handleToolSelect(tool);
-          setActiveMobileView("tools");
+      <Button
+        variant="tertiary"
+        className="mobile-bottom-button"
+        aria-label={t("fileSidebar.myFiles", "File library")}
+        onClick={() => {
+          actions.setWorkbench("myFiles");
+          setActiveMobileView("workbench");
         }}
       >
-        <Button
-          variant="tertiary"
-          className="mobile-bottom-button"
-          aria-label={
-            quickNavHost?.signingBadge
-              ? t(
-                  "signMenu.triggerUnreadCount",
-                  "Sign · {{count}} unread sessions",
-                  { count: quickNavHost.signingBadge },
-                )
-              : t("signMenu.title", "Sign")
-          }
-          onClick={() => setMobileSignOpen((open) => !open)}
-        >
-          <Icon name="pen-tool" size="1.5rem" />
-          {quickNavHost && quickNavHost.signingBadge > 0 && (
-            <span className="sign-menu__trigger-badge" aria-hidden>
-              {quickNavHost.signingBadge}
-            </span>
-          )}
-          <span className="mobile-bottom-button-label">
-            {t("signMenu.title", "Sign")}
-          </span>
-        </Button>
-      </SignMenu>
+        <Icon name="folder" size="1.5rem" />
+        <span className="mobile-bottom-button-label">Biblioteca</span>
+      </Button>
       <Button
         variant="tertiary"
         className="mobile-bottom-button"
@@ -659,25 +633,17 @@ export default function HomePage() {
           {t("quickAccess.allTools", "Tools")}
         </span>
       </Button>
-      {toolAvailability["automate"]?.available !== false && (
-        <Button
-          variant="tertiary"
-          className="mobile-bottom-button"
-          aria-label={t("quickAccess.automate", "Automate")}
-          onClick={() => {
-            leaveMyFiles();
-            handleToolSelect("automate");
-            if (isMobile) {
-              setActiveMobileView("tools");
-            }
-          }}
-        >
-          <Icon name="automate" size="1.5rem" />
-          <span className="mobile-bottom-button-label">
-            {t("quickAccess.automate", "Automate")}
-          </span>
-        </Button>
-      )}
+      <Button
+        variant="tertiary"
+        className="mobile-bottom-button"
+        aria-label="Abrir archivo"
+        onClick={() => openFromComputer?.()}
+      >
+        <Icon name="upload" size="1.5rem" />
+        <span className="mobile-bottom-button-label">
+          Abrir
+        </span>
+      </Button>
       <Button
         variant="tertiary"
         className="mobile-bottom-button"
@@ -795,12 +761,6 @@ export default function HomePage() {
                     </div>
                   </div>
                 </div>
-                {isTouch && showSwipeHint && (
-                  <span className="mobile-swipe-hint" aria-hidden="true">
-                    {t(
-                      "home.mobile.swipeHint",
-                      "Swipe left or right to switch views",
-                    )}
                   </span>
                 )}
               </div>
