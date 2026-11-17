@@ -38,6 +38,7 @@ import {
   resetSsoAutoLoginCounts,
 } from "@editor/auth/ssoAutoLogin";
 import { LoadingFallback } from "@editor/components/shared/LoadingFallback";
+import { withBasePath } from "@editor/constants/app";
 
 // A failed default sign-in counts towards the admin's lockout, so a tab that
 // saw one fail (or can't read storage) never tries again.
@@ -487,7 +488,7 @@ export default function Login() {
       <AuthLayout>
         <div className="auth-logo-block">
           <img
-            src="/logo-pj-court-trans.webp"
+            src={withBasePath("/logo-pj-court-trans.webp")}
             alt="PJ-DOCS"
             className="auth-logo-header"
             style={{ maxHeight: "3.5rem", objectFit: "contain" }}
@@ -534,8 +535,8 @@ export default function Login() {
     <AuthLayout>
       <SpringLoginForm
         state={login}
-        logoSrc="/logo-pj-court-trans.webp"
-        logoDarkSrc="/logo-pj-court-trans.webp"
+        logoSrc={withBasePath("/logo-pj-court-trans.webp")}
+        logoDarkSrc={withBasePath("/logo-pj-court-trans.webp")}
         logoAlt="PJ-DOCS"
         showEmailForm={showEmailForm}
         oauthCtaPrefix={

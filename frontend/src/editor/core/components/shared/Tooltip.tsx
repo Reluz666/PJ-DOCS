@@ -17,6 +17,7 @@ import { useOptionalSidebarContext } from "@editor/contexts/SidebarContext";
 import { useLogoAssets } from "@editor/hooks/useLogoAssets";
 import styles from "@editor/components/shared/tooltip/Tooltip.module.css";
 import { Z_INDEX_OVER_FULLSCREEN_SURFACE } from "@editor/styles/zIndex";
+import { withBasePath } from "@editor/constants/app";
 
 // The wrapped child's own event handlers, which Tooltip forwards to after
 // running its own trigger logic. Kept partial since any given child may set none.
@@ -72,7 +73,7 @@ function TooltipHeader({
       <div className={styles["tooltip-logo"]}>
         {header.logo || (
           <img
-            src={tooltipLogo || "/logo-pjdocs.webp"}
+            src={tooltipLogo || withBasePath("/logo-pjdocs.webp")}
             alt="PJ-DOCS"
             style={{ width: "1.4rem", height: "1.4rem", display: "block" }}
           />

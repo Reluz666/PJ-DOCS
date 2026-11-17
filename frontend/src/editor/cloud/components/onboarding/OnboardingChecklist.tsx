@@ -17,8 +17,9 @@ import {
 import { openAppSettings } from "@editor/utils/appSettings";
 import { requestStartTour } from "@editor/constants/events";
 import styles from "@editor/components/onboarding/OnboardingChecklist.module.css";
+import { withBasePath } from "@editor/constants/app";
 
-const courtLogo = "/logo-pj-court-trans.webp";
+const courtLogo = withBasePath("/logo-pj-court-trans.webp");
 
 const FLOW_ID = "saas-checklist";
 const STEP_INVITE_TEAM = "invite-team";

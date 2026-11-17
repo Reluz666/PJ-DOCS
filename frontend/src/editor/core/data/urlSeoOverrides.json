@@ -321,11 +321,11 @@
   },
   "/overlay-pdfs": {
     "title": "Overlay PDFs",
-    "description": "A free, private PDF editor you can run on any infrastructure."
+    "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque."
   },
   "/overlay-pdf": {
     "title": "Overlay PDFs",
-    "description": "A free, private PDF editor you can run on any infrastructure."
+    "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque."
   },
   "/edit-table-of-contents": {
     "title": "Edit PDF Bookmarks",

@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import "@editor/components/shared/BrandMark.css";
 import "@editor/ui/Logo.css";
+import { withBasePath } from "@editor/constants/app";
 
 export type LogoVariant = "iconOnly" | "iconAndText" | "textOnly";
 
@@ -41,7 +42,7 @@ export function Logo({
         }}
       >
         <img
-          src="/logo-pj-court-trans.webp"
+          src={withBasePath("/logo-pj-court-trans.webp")}
           alt={alt}
           style={{
             height: iconHeight,
@@ -103,7 +104,7 @@ export function Logo({
       }}
     >
       <img
-        src="/logo-pj-court-trans.webp"
+        src={withBasePath("/logo-pj-court-trans.webp")}
         alt={alt}
         style={{
           height: iconHeight,

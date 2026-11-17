@@ -6,8 +6,9 @@ import { Button, type ButtonAccent } from "@editor/ui/Button";
 import { Icon } from "@editor/ui/Icon";
 import { Z_INDEX_ONBOARDING_CARD } from "@editor/styles/zIndex";
 import styles from "@editor/components/onboarding/InitialOnboardingModal/InitialOnboardingModal.module.css";
+import { withBasePath } from "@editor/constants/app";
 
-const courtLogo = "/logo-pj-court-trans.webp";
+const courtLogo = withBasePath("/logo-pj-court-trans.webp");
 
 /** A footer button. `action` is an opaque string handled by the caller. */
 export interface ShellButton {

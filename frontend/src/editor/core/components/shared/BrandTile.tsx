@@ -1,3 +1,4 @@
+import { withBasePath } from "@editor/constants/app";
 interface BrandTileProps {
   /** CSS length. Omit to let the caller's CSS size it. */
   size?: string;
@@ -8,7 +9,7 @@ interface BrandTileProps {
 export function BrandTile({ size = "2rem", className }: BrandTileProps) {
   return (
     <img
-      src="/logo-pjdocs.webp"
+      src={withBasePath("/logo-pjdocs.webp")}
       alt="PJ-DOCS"
       className={className}
       style={{ width: size, height: size, objectFit: "contain" }}

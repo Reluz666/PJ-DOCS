@@ -8135,7 +8135,7 @@ openFailed = "No se pudo abrir tu navegador. Abre Uso y facturación en tu servi
 [portal.accountLink.panel]
 instancesSub = "Servidores self-hosted conectados al mismo equipo."
 instancesTitle = "Instancias conectadas"
-manageCloud = "Gestionar en stirling.com"
+manageCloud = "Gestionar en la nube"
 otherInstancesSub = "Otros servidores autoalojados conectados al mismo equipo en Nube PJ-DOCS."
 otherInstancesTitle = "Otras instancias conectadas"
 revokeError = "No se ha podido revocar la instancia"
@@ -9302,7 +9302,7 @@ title = "Instalar el editor de PJ-DOCS"
 
 [portal.home.download.docker]
 detailBody = "Ejecuta la imagen oficial en tu servidor."
-note = "Se abre en :8080. Inicio de sesión predeterminado: admin / stirling."
+note = "Se abre en :8080. Inicio de sesión predeterminado: definido por el administrador."
 tagline = "Ejecuta el servidor en un contenedor"
 title = "Docker"
 variantFat = "Fat"
@@ -9334,7 +9334,7 @@ title = "macOS"
 [portal.home.download.manual]
 detailBody = "Ejecuta el .jar en un servidor físico."
 downloadBtn = "Descargar el .jar"
-note = "Requiere Java 21+. Se abre en :8080; inicio de sesión predeterminado admin / stirling."
+note = "Requiere Java 21+. Se abre en :8080; inicio de sesión predeterminado definido por el administrador."
 runLabel = "Después ejecútalo"
 tagline = "Ejecuta el .jar en un servidor físico"
 title = "Configuración manual del servidor"

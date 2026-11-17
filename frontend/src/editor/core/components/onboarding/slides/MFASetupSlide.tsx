@@ -46,7 +46,7 @@ function MFASetupContent({ onMfaSetupComplete }: MFASetupSlideProps) {
   const setupCompleteRef = useRef(false);
   const { signOut } = useAuth();
   const accountLogout = useAccountLogout();
-  const qrLogoSrc = "/logo-pj-court-trans.webp";
+  const qrLogoSrc = withBasePath("/logo-pj-court-trans.webp");
 
   const normalizeMfaCode = useCallback(
     (value: string) => value.replace(/\D/g, "").slice(0, 6),

@@ -23,12 +23,12 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, "..");
 const read = (p) => fs.readFileSync(path.join(ROOT, p), "utf8");
 
-const SITE_NAME = "Stirling PDF";
+const SITE_NAME = "PJ-DOCS";
 // SITE_TITLE is the home page's own title/social headline; SITE_NAME is the
 // suffix every other page carries, so the download count appears once.
-const SITE_TITLE = "Stirling PDF - 30M+ Downloads";
+const SITE_TITLE = "PJ-DOCS - Corte Superior de Justicia de Lambayeque";
 const SITE_DESC =
-  "A free, private PDF editor you can run on any infrastructure.";
+  "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.";
 const DEFAULT_IMAGE_BASENAME = "home";
 
 // Keyword-targeted landing copy for the convert tool's URL aliases. Every

@@ -1,6 +1,7 @@
 import { useCallback } from "react";
 import { useQuickNavHost } from "@editor/contexts/QuickNavHostContext";
 import { useSecretClicks } from "@editor/components/easterEgg/useSecretClicks";
+import { withBasePath } from "@editor/constants/app";
 
 export interface QuickNavBrandProps {
   /** Returns the app you are in to its default state. */
@@ -39,7 +40,7 @@ export function QuickNavBrand({ onReturnHome }: QuickNavBrandProps) {
         }}
       >
         <img
-          src="/logo-pj-court-trans.webp"
+          src={withBasePath("/logo-pj-court-trans.webp")}
           alt="Poder Judicial - Corte de Lambayeque"
           style={{
             width: "2.15rem",

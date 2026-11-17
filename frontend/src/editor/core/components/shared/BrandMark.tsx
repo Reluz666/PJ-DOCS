@@ -1,4 +1,5 @@
 import "@editor/components/shared/BrandMark.css";
+import { withBasePath } from "@editor/constants/app";
 
 interface BrandMarkProps {
   /** Height of the mark (CSS length). */
@@ -12,7 +13,7 @@ interface BrandMarkProps {
 export function BrandMark({ height = "1.8rem", className }: BrandMarkProps) {
   return (
     <img
-      src="/logo-pj-court-trans.webp"
+      src={withBasePath("/logo-pj-court-trans.webp")}
       alt="Poder Judicial del Perú"
       className={`sui-brandmark${className ? ` ${className}` : ""}`}
       style={{

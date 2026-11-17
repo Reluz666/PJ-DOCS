@@ -726,17 +726,17 @@ describe("shipped OG manifests", () => {
 
   it("gives the self-hosted home the brand card, verbatim", async () => {
     const manifest = await load("og-metadata.json");
-    expect(manifest.default.title).toBe("Stirling PDF - 30M+ Downloads");
+    expect(manifest.default.title).toBe("PJ-DOCS - Corte Superior de Justicia de Lambayeque");
     expect(manifest.default.description).toBe(
-      "A free, private PDF editor you can run on any infrastructure.",
+      "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
     );
     const html = injectOg(TEMPLATE, manifest.default, { isHome: true });
     expect(html).toContain(
-      '<meta name="twitter:title" content="Stirling PDF - 30M+ Downloads" />',
+      '<meta name="twitter:title" content="PJ-DOCS - Corte Superior de Justicia de Lambayeque" />',
     );
     expect(html).toContain(
-      '<meta name="twitter:description" content="A free, private ' +
-        'PDF editor you can run on any infrastructure." />',
+      '<meta name="twitter:description" content="Sistema de gestión de ' +
+        'documentos PDF de la Corte Superior de Justicia de Lambayeque." />',
     );
   });
 

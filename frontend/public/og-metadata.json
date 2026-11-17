@@ -1,8 +1,8 @@
 {
   "default": {
     "image": "/og_images/home.png",
-    "title": "PJ-DOCS - Sistema Oficial de Documentos",
-    "description": "A free, private PDF editor you can run on any infrastructure."
+    "title": "PJ-DOCS - Corte Superior de Justicia de Lambayeque",
+    "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque."
   },
   "byTool": {
     "certSign": {
@@ -228,7 +228,7 @@
     "overlayPdfs": {
       "image": "/og_images/overlay-pdfs.png",
       "title": "Overlay PDFs - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure."
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque."
     },
     "getPdfInfo": {
       "image": "/og_images/get-all-info-on-pdf.png",
@@ -322,367 +322,367 @@
     "/editor": {
       "image": "/og_images/home.png",
       "title": "Editor - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/login": {
       "image": "/og_images/home.png",
       "title": "Sign In - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/mobile-scanner": {
       "image": "/og_images/home.png",
       "title": "Mobile Scanner - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/files": {
       "image": "/og_images/home.png",
       "title": "Files - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings": {
       "image": "/og_images/home.png",
       "title": "Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/docs": {
       "image": "/og_images/home.png",
       "title": "Documentation - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/processor": {
       "image": "/og_images/home.png",
       "title": "Processor - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/processor/pipelines": {
       "image": "/og_images/home.png",
       "title": "Pipelines - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/processor/sources": {
       "image": "/og_images/home.png",
       "title": "Sources - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/processor/integrations": {
       "image": "/og_images/home.png",
       "title": "Integrations - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/processor/documents": {
       "image": "/og_images/home.png",
       "title": "Documents - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/processor/review": {
       "image": "/og_images/home.png",
       "title": "Review - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/preferences": {
       "image": "/og_images/home.png",
       "title": "Preferences Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/notifications": {
       "image": "/og_images/home.png",
       "title": "Notifications Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/connections": {
       "image": "/og_images/home.png",
       "title": "Connections Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/account": {
       "image": "/og_images/home.png",
       "title": "Account Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/general": {
       "image": "/og_images/home.png",
       "title": "General Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/people": {
       "image": "/og_images/home.png",
       "title": "People Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/teams": {
       "image": "/og_images/home.png",
       "title": "Teams Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/security": {
       "image": "/og_images/home.png",
       "title": "Security Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/identity": {
       "image": "/og_images/home.png",
       "title": "Identity Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/plan": {
       "image": "/og_images/home.png",
       "title": "Plan Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/payments": {
       "image": "/og_images/home.png",
       "title": "Payments Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/requests": {
       "image": "/og_images/home.png",
       "title": "Requests Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/developer": {
       "image": "/og_images/home.png",
       "title": "Developer Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/api-keys": {
       "image": "/og_images/home.png",
       "title": "API Keys Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/connectedAccounts": {
       "image": "/og_images/home.png",
       "title": "Connected Accounts Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/hotkeys": {
       "image": "/og_images/home.png",
       "title": "Hotkeys Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/adminGeneral": {
       "image": "/og_images/home.png",
       "title": "Admin General Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/adminSecurity": {
       "image": "/og_images/home.png",
       "title": "Admin Security Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/adminConnections": {
       "image": "/og_images/home.png",
       "title": "Admin Connections Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/adminPrivacy": {
       "image": "/og_images/home.png",
       "title": "Admin Privacy Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/adminDatabase": {
       "image": "/og_images/home.png",
       "title": "Admin Database Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/adminAdvanced": {
       "image": "/og_images/home.png",
       "title": "Admin Advanced Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/adminLegal": {
       "image": "/og_images/home.png",
       "title": "Admin Legal Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/adminPremium": {
       "image": "/og_images/home.png",
       "title": "Admin Premium Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/adminFeatures": {
       "image": "/og_images/home.png",
       "title": "Admin Features Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/adminPlan": {
       "image": "/og_images/home.png",
       "title": "Admin Plan Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/adminAudit": {
       "image": "/og_images/home.png",
       "title": "Admin Audit Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/adminUsage": {
       "image": "/og_images/home.png",
       "title": "Admin Usage Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/adminEndpoints": {
       "image": "/og_images/home.png",
       "title": "Admin Endpoints Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/adminStorageSharing": {
       "image": "/og_images/home.png",
       "title": "Admin Storage Sharing Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/adminFolderAccess": {
       "image": "/og_images/home.png",
       "title": "Admin Folder Access Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/adminMcp": {
       "image": "/og_images/home.png",
       "title": "Admin MCP Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/adminAiGeneral": {
       "image": "/og_images/home.png",
       "title": "Admin AI General Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/adminAiModels": {
       "image": "/og_images/home.png",
       "title": "Admin AI Models Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/adminAiDocuments": {
       "image": "/og_images/home.png",
       "title": "Admin AI Documents Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/adminAiLimits": {
       "image": "/og_images/home.png",
       "title": "Admin AI Limits Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/adminAi": {
       "image": "/og_images/home.png",
       "title": "Admin AI Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/help": {
       "image": "/og_images/home.png",
       "title": "Help Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/feedback": {
       "image": "/og_images/home.png",
       "title": "Feedback Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/legal": {
       "image": "/og_images/home.png",
       "title": "Legal Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/backendThirdPartyLicenses": {
       "image": "/og_images/home.png",
       "title": "Backend Third Party Licenses Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/frontendThirdPartyLicenses": {
       "image": "/og_images/home.png",
       "title": "Frontend Third Party Licenses Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/about": {
       "image": "/og_images/home.png",
       "title": "About Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/payg": {
       "image": "/og_images/home.png",
       "title": "Pay As You Go Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/account-link": {
       "image": "/og_images/home.png",
       "title": "Account Link Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/users": {
       "image": "/og_images/home.png",
       "title": "Users Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/billing": {
       "image": "/og_images/home.png",
       "title": "Billing Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/audit": {
       "image": "/og_images/home.png",
       "title": "Audit Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/settings/storage": {
       "image": "/og_images/home.png",
       "title": "Storage Settings - PJ-DOCS",
-      "description": "A free, private PDF editor you can run on any infrastructure.",
+      "description": "Sistema de gestión de documentos PDF de la Corte Superior de Justicia de Lambayeque.",
       "noindex": true
     },
     "/pdf-to-word": {
