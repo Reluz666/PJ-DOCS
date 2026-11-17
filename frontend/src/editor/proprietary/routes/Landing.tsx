@@ -82,7 +82,12 @@ export default function Landing() {
   }
 
   // If login is disabled, show app directly (anonymous mode)
-  if (config?.enableLogin === false || backendProbe.loginDisabled) {
+  // PJ-DOCS: allowAnonymous = public uses tools without login; admin signs in at /login
+  if (
+    config?.enableLogin === false ||
+    config?.allowAnonymous === true ||
+    backendProbe.loginDisabled
+  ) {
     console.debug("[Landing] Login disabled - showing app in anonymous mode");
     return <AppRoot />;
   }

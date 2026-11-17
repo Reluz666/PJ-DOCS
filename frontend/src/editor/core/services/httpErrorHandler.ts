@@ -21,6 +21,13 @@ const recentSpecialByEndpoint: Record<string, number> = {};
 const SPECIAL_SUPPRESS_MS = 1500; // brief window to suppress generic duplicate after special toast
 
 // Mirrors the key in proprietary/auth/springAuthClient.ts; AuthCallback consumes it.
+// PJ-DOCS: set from app-config; when the server allows anonymous use a 401
+// means "sign in for this feature", not "session expired", so don't bounce.
+let anonymousAccessAllowed = false;
+export function setAnonymousAccessAllowed(v: boolean): void {
+  anonymousAccessAllowed = v;
+}
+
 const POST_LOGIN_REDIRECT_STORAGE_KEY = "stirling_post_login_path";
 
 function stashPostLoginRedirect(path: string): void {
@@ -117,7 +124,12 @@ export async function handleHttpError(error: unknown): Promise<boolean> {
       pathname.includes("/mobile-scanner") || pathname.includes("/mobile-sign");
 
     // If not on auth page, redirect to login with expired session message
-    if (!isAuthPage && !isPublicMobilePage && !skipAuthRedirect) {
+    if (
+      !isAuthPage &&
+      !isPublicMobilePage &&
+      !skipAuthRedirect &&
+      !anonymousAccessAllowed
+    ) {
       if (loginRedirectRecentlyFired()) {
         console.warn(
           "[httpErrorHandler] 401 redirect already fired moments ago — suppressing repeat to avoid a login loop:",

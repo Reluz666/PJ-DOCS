@@ -19,6 +19,7 @@ import type {
 } from "@editor/types/appConfig";
 import { useJwtConfigSync } from "@editor/hooks/useJwtConfigSync";
 import { setPdfAccessPolicy } from "@editor/services/pdfAccessService";
+import { setAnonymousAccessAllowed } from "@editor/services/httpErrorHandler";
 
 export interface AppConfigRetryOptions {
   maxRetries?: number;
@@ -127,6 +128,7 @@ export const AppConfigProvider: React.FC<AppConfigProviderProps> = ({
 
   useEffect(() => {
     if (data) {
+      setAnonymousAccessAllowed(data.allowAnonymous === true);
       if (data.enableLogin === false) {
         try {
           localStorage.removeItem("stirling_jwt");

@@ -966,6 +966,8 @@ public class ApplicationProperties {
     @Data
     public static class Security {
         private boolean enableLogin;
+        // PJ-DOCS: tools usable without login; admin endpoints stay guarded by @PreAuthorize
+        private boolean allowAnonymous;
         private boolean honorOwnerPasswords = true;
         private boolean ssoAutoLogin;
         private InitialLogin initialLogin = new InitialLogin();

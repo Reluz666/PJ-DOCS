@@ -7,6 +7,7 @@ export interface AppConfig {
   languages?: string[];
   defaultLocale?: string;
   enableLogin?: boolean;
+  allowAnonymous?: boolean;
   honorOwnerPasswords?: boolean;
   showSettingsWhenNoLogin?: boolean;
   enableEmailInvites?: boolean;

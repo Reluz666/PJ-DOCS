@@ -256,6 +256,9 @@ public class ConfigController {
             boolean enableLogin =
                     applicationProperties.getSecurity().isEnableLogin() && userService != null;
             configData.put("enableLogin", enableLogin);
+            configData.put(
+                    "allowAnonymous",
+                    enableLogin && applicationProperties.getSecurity().isAllowAnonymous());
 
             configData.put(
                     "googleDriveAccountConnections",

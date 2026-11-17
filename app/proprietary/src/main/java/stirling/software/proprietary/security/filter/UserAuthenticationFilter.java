@@ -138,7 +138,8 @@ public class UserAuthenticationFilter extends OncePerRequestFilter {
             String contextPath = request.getContextPath();
 
             // Allow public auth endpoints to pass through without authentication
-            if (isPublicAuthEndpoint(requestURI, contextPath)) {
+            if (isPublicAuthEndpoint(requestURI, contextPath)
+                    || securityProp.isAllowAnonymous()) {
                 filterChain.doFilter(request, response);
                 return;
             }

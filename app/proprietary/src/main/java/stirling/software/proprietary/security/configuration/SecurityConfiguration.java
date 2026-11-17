@@ -3,6 +3,8 @@ package stirling.software.proprietary.security.configuration;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import org.springframework.security.authorization.AuthorizationDecision;
+import org.springframework.security.authorization.AuthenticatedAuthorizationManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -362,7 +364,11 @@ public class SecurityConfiguration {
                                             })
                                     .permitAll()
                                     .anyRequest()
-                                    .authenticated());
+                                    .access(
+                                            securityProperties.isAllowAnonymous()
+                                                    ? (auth, ctx) -> new AuthorizationDecision(true)
+                                                    : AuthenticatedAuthorizationManager
+                                                            .authenticated()));
             // Handle User/Password Logins
             if (securityProperties.isUserPass()) {
                 // v2: Authentication is handled via API (/api/v1/auth/login), not form login
