@@ -6,7 +6,6 @@
   <title>{{.StatusCode}} · {{if eq .StatusCode 403}}Acceso denegado{{else}}Error de acceso{{end}} · PJ-DOCS</title>
 </head>
 <body>
-  {{template "pjdocs-backdrop"}}
   <div class="shell">
     <main>
       {{template "pjdocs-brand"}}
@@ -43,7 +42,6 @@
       </section>
     </main>
   </div>
-  {{template "pjdocs-aurora"}}
 </body>
 </html>
 {{end}}

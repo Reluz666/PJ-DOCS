@@ -18,15 +18,14 @@
     --p-csjla-guinda-900: #751b28;
     --p-csjla-guinda-300: #efa0a9;
     --p-csjla-gray-50: #faf9f7;
-    --base: #f4e5dc;
-    --wash: linear-gradient(150deg, #e1c7b6 12%, #b9857a 37%, #782b3c 53%, #ba897e 72%, #e2c9b7 92%);
+    --base: #eee9e6;
     --surface: #fcf9f5;
-    --edge: #fffaf6;
+    --edge: #dcd1cc;
     --text: #30252a;
     --muted: #594b50;
     --accent: var(--p-csjla-guinda-800);
-    --shadow: #3d22263b;
-    --brand-surface: #f5e6e4ef;
+    --shadow: #3d22261a;
+    --brand-surface: #f2e4e1;
     --brand-text: #44232b;
     --brand-muted: #654751;
   }
@@ -39,22 +38,6 @@
     color: var(--text);
     font: 1rem/1.55 system-ui, sans-serif;
   }
-
-  .backdrop {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    background: var(--wash);
-  }
-
-  .aurora {
-    display: block;
-    width: 100%;
-    height: 100%;
-    visibility: hidden;
-  }
-
-  .aurora[data-ready] { visibility: visible; }
 
   .shell {
     position: relative;
@@ -74,7 +57,7 @@
     border-radius: 1rem;
     overflow: clip;
     outline: 1px solid var(--edge);
-    box-shadow: 0 1.25rem 3.5rem var(--shadow);
+    box-shadow: 0 .75rem 2rem var(--shadow);
   }
 
   .brand {
@@ -241,15 +224,14 @@
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --base: #2c1118;
-      --wash: linear-gradient(150deg, #210e15 12%, #400a13 36%, #751b28 53%, #623731 70%, #24121a 92%);
+      --base: #211d21;
       --surface: #251f24;
-      --edge: #eab7ae43;
+      --edge: #5a474e;
       --text: #fff4ef;
       --muted: #e2cbd0;
       --accent: var(--p-csjla-guinda-300);
-      --shadow: #18050a85;
-      --brand-surface: #3c252eef;
+      --shadow: #140e1459;
+      --brand-surface: #3a2b33;
       --brand-text: #fff1eb;
       --brand-muted: #edcfd1;
     }
@@ -278,230 +260,11 @@
   }
 
   @media (forced-colors: active) {
-    .backdrop { display: none; }
     main { outline-color: CanvasText; }
     .brand { outline: 1px solid CanvasText; }
     :where(button, a, summary):focus-visible { outline-color: Highlight; }
   }
 </style>
-{{end}}
-
-{{define "pjdocs-backdrop"}}
-<div class="backdrop" aria-hidden="true">
-  <canvas class="aurora" id="aurora"></canvas>
-</div>
-{{end}}
-
-{{define "pjdocs-aurora"}}
-<script>
-(() => {
-  "use strict";
-
-  const canvas = document.getElementById("aurora");
-  const gl = canvas.getContext("webgl", {
-    alpha: false, antialias: false, depth: false, powerPreference: "low-power"
-  });
-  if (!gl) return;
-
-  const dark = matchMedia("(prefers-color-scheme: dark)");
-  const reduced = matchMedia("(prefers-reduced-motion: reduce)");
-  const forced = matchMedia("(forced-colors: active)");
-  const vertex = [
-    "attribute vec2 aPosition;",
-    "varying vec2 vUV;",
-    "void main() {",
-    "  vUV = aPosition * 0.5 + 0.5;",
-    "  gl_Position = vec4(aPosition, 0.0, 1.0);",
-    "}"
-  ].join("\n");
-
-  // Offset the folds at different rates to give the surface depth as the pointer moves.
-  const fragment = [
-    "#ifdef GL_FRAGMENT_PRECISION_HIGH",
-    "precision highp float;",
-    "#else",
-    "precision mediump float;",
-    "#endif",
-    "varying vec2 vUV;",
-    "uniform vec2 uResolution;",
-    "uniform vec2 uPointer;",
-    "uniform float uTime;",
-    "uniform float uDark;",
-    "float band(float x, float width) {",
-    "  float d = x / width;",
-    "  return exp(-d * d);",
-    "}",
-    "void main() {",
-    "  vec2 uv = vUV;",
-    "  vec2 p = (uv - 0.5) * vec2(min(2.3, uResolution.x / uResolution.y), 1.0);",
-    "  float t = uTime * 0.26;",
-    "  float x = p.x + uPointer.x * 0.06;",
-    "  float y = p.y + uPointer.y * 0.07;",
-    "  float fold = y + 0.62 * x + 0.18 * sin(3.2 * x + t + 0.8);",
-    "  fold += 0.05 * sin(6.5 * x - 2.2 * y - t * 0.45);",
-    "  float back = p.y + 0.48 * p.x + 0.18 * sin(3.6 * p.x - t * 0.57 - 0.7);",
-    "  float front = fold + 0.043 * sin(6.4 * x + t * 0.72) + uPointer.y * 0.05;",
-    "  vec3 paper = mix(vec3(0.95, 0.864, 0.787), vec3(0.116, 0.071, 0.090), uDark);",
-    "  vec3 mist = mix(vec3(0.72, 0.545, 0.527), vec3(0.163, 0.080, 0.107), uDark);",
-    "  vec3 wine = vec3(0.41, 0.08, 0.144);",
-    "  vec3 gold = vec3(0.84, 0.63, 0.46);",
-    "  vec3 color = mix(mist, paper, smoothstep(-0.14, 1.0, uv.y));",
-    "  float farRibbon = smoothstep(-0.05, -0.025, back) * (1.0 - smoothstep(0.08, 0.16, back));",
-    "  color = mix(color, wine, farRibbon * 0.57);",
-    "  float ribbon = smoothstep(-0.26, -0.22, front) * (1.0 - smoothstep(0.045, 0.06, front));",
-    "  vec3 surface = mix(wine, vec3(0.24, 0.065, 0.110), smoothstep(-0.18, 0.04, front));",
-    "  float sheen = band(front + 0.13, 0.055) * (0.30 + 0.22 * sin(x * 3.5 - t * 0.3));",
-    "  surface = mix(surface, gold, sheen);",
-    "  color = mix(color, surface, ribbon);",
-    "  color = mix(color, gold, band(front - 0.044, 0.004) * (0.30 + 0.26 * sin(3.6 * x + t)));",
-    "  color = mix(color, gold, band(front + 0.207, 0.009) * 0.26);",
-    "  color = mix(color, wine, band(fold + 0.325, 0.035) * 0.31);",
-    "  float grain = fract(dot(mod(gl_FragCoord.xy, 127.0), vec2(0.06711056, 0.00583715)));",
-    "  color += (fract(grain * 52.9829189) - 0.5) * 0.014;",
-    "  gl_FragColor = vec4(color, 1.0);",
-    "}"
-  ].join("\n");
-
-  function compile(type, source) {
-    const shader = gl.createShader(type);
-    if (!shader) return null;
-    gl.shaderSource(shader, source);
-    gl.compileShader(shader);
-    if (gl.getShaderParameter(shader, gl.COMPILE_STATUS)) return shader;
-    gl.deleteShader(shader);
-    return null;
-  }
-
-  function createScene() {
-    const vs = compile(gl.VERTEX_SHADER, vertex);
-    const fs = compile(gl.FRAGMENT_SHADER, fragment);
-    const program = vs && fs && gl.createProgram();
-    if (program) {
-      gl.attachShader(program, vs);
-      gl.attachShader(program, fs);
-      gl.bindAttribLocation(program, 0, "aPosition");
-      gl.linkProgram(program);
-    }
-    if (vs) gl.deleteShader(vs);
-    if (fs) gl.deleteShader(fs);
-    if (!program) return null;
-    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-      gl.deleteProgram(program);
-      return null;
-    }
-
-    const triangle = gl.createBuffer();
-    if (!triangle) {
-      gl.deleteProgram(program);
-      return null;
-    }
-    gl.bindBuffer(gl.ARRAY_BUFFER, triangle);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
-    gl.useProgram(program);
-    gl.enableVertexAttribArray(0);
-    gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
-    return {
-      resolution: gl.getUniformLocation(program, "uResolution"),
-      pointer: gl.getUniformLocation(program, "uPointer"),
-      time: gl.getUniformLocation(program, "uTime"),
-      dark: gl.getUniformLocation(program, "uDark")
-    };
-  }
-
-  let scene = createScene();
-  let frame = 0;
-  let lastDraw = null;
-  let time = 0;
-  let pointerX = 0;
-  let pointerY = 0;
-  let targetX = 0;
-  let targetY = 0;
-
-  function draw() {
-    gl.uniform2f(scene.pointer, pointerX, pointerY);
-    gl.uniform1f(scene.time, time);
-    gl.drawArrays(gl.TRIANGLES, 0, 3);
-    if (!canvas.hasAttribute("data-ready")) canvas.setAttribute("data-ready", "");
-  }
-
-  function tick(now) {
-    frame = 0;
-    if (document.hidden || !scene || reduced.matches || forced.matches) return;
-    const elapsed = lastDraw === null ? 0 : now - lastDraw;
-    // Bound fragment work on high-refresh displays and avoid jumps after a slow frame.
-    if (lastDraw === null || elapsed >= 32) {
-      const delta = Math.min(elapsed, 50) / 1000;
-      const blend = 1 - Math.exp(-delta * 4);
-      time += delta;
-      pointerX += (targetX - pointerX) * blend;
-      pointerY += (targetY - pointerY) * blend;
-      draw();
-      lastDraw = now;
-    }
-    frame = requestAnimationFrame(tick);
-  }
-
-  function stop() {
-    cancelAnimationFrame(frame);
-    frame = 0;
-    lastDraw = null;
-  }
-
-  function refresh() {
-    stop();
-    if (document.hidden || !scene || forced.matches) return;
-    const ratio = Math.min(window.devicePixelRatio || 1, 1.5);
-    const width = Math.max(1, Math.floor(canvas.clientWidth * ratio));
-    const height = Math.max(1, Math.floor(canvas.clientHeight * ratio));
-    if (canvas.width !== width) canvas.width = width;
-    if (canvas.height !== height) canvas.height = height;
-    gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
-    gl.uniform2f(scene.resolution, gl.drawingBufferWidth, gl.drawingBufferHeight);
-    gl.uniform1f(scene.dark, Number(dark.matches));
-    if (reduced.matches) {
-      time = pointerX = pointerY = targetX = targetY = 0;
-      draw();
-    } else {
-      frame = requestAnimationFrame(tick);
-    }
-  }
-
-  function point(event) {
-    if (reduced.matches || forced.matches) return;
-    targetX = 2 * event.clientX / canvas.clientWidth - 1;
-    targetY = 1 - 2 * event.clientY / canvas.clientHeight;
-  }
-
-  function centerPointer() {
-    targetX = targetY = 0;
-  }
-
-  window.addEventListener("pointerdown", point, { passive: true });
-  window.addEventListener("pointermove", point, { passive: true });
-  window.addEventListener("pointerup", event => {
-    if (event.pointerType !== "mouse") centerPointer();
-  }, { passive: true });
-  window.addEventListener("pointercancel", centerPointer, { passive: true });
-  document.documentElement.addEventListener("pointerleave", centerPointer, { passive: true });
-  window.addEventListener("resize", refresh);
-  document.addEventListener("visibilitychange", refresh);
-  dark.addEventListener("change", refresh);
-  reduced.addEventListener("change", refresh);
-  forced.addEventListener("change", refresh);
-  canvas.addEventListener("webglcontextlost", event => {
-    event.preventDefault();
-    stop();
-    scene = null;
-    canvas.removeAttribute("data-ready");
-  });
-  canvas.addEventListener("webglcontextrestored", () => {
-    scene = createScene();
-    refresh();
-  });
-
-  refresh();
-})();
-</script>
 {{end}}
 
 {{define "pjdocs-masthead"}}
@@ -538,7 +301,6 @@
   <title>Inicia sesión · PJ-DOCS</title>
 </head>
 <body>
-  {{template "pjdocs-backdrop"}}
   <div class="shell">
     <main>
       {{template "pjdocs-brand"}}
@@ -630,7 +392,6 @@
       </section>
     </main>
   </div>
-  {{template "pjdocs-aurora"}}
 </body>
 </html>
 {{end}}

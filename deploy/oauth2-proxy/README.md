@@ -39,7 +39,7 @@ OAuth2 Proxy carga las dos plantillas en un mismo conjunto. `sign_in.html` conti
 
 Ambas páginas comparten una tarjeta con una ilustración de trabajo con documentos, el logo de PJ-DOCS y el emblema de la CSJLA. La ilustración, el logo y el favicon de [`assets/`](assets/) se incrustan en `sign_in.html` como URL de datos porque OAuth2 Proxy carga las plantillas sin servir esos archivos. En pantallas pequeñas los paneles se apilan.
 
-La aurora WebGL se ve a través del panel de marca y responde al puntero y al toque. Si WebGL no está disponible, se muestra un degradado CSS. La preferencia de movimiento reducido deja un fotograma estático. El renderizado se pausa cuando la pestaña queda oculta y limita la densidad de píxeles del lienzo a 1,5.
+Ambas vistas usan un fondo fijo que se adapta al tema del sistema.
 
 El formulario usa `.ProxyPrefix` y `.Redirect` para enviar `rd` a `/start`. La página de error usa también `.StatusCode`, `.Title`, `.Message`, `.RequestID`, `.Footer` y `.Version`. El 403 incluye el requisito del dominio y permite elegir otra cuenta. [Variables de inicio de sesión](https://github.com/oauth2-proxy/oauth2-proxy/blob/v7.15.6/pkg/app/pagewriter/sign_in_page.go) · [Variables de error](https://github.com/oauth2-proxy/oauth2-proxy/blob/v7.15.6/pkg/app/pagewriter/error_page.go)
 
@@ -49,4 +49,4 @@ Desde la raíz del repositorio, ejecuta el renderizador con datos de ejemplo y a
 go run ./deploy/oauth2-proxy/preview/render.go /tmp/pjdocs-oauth-preview
 ```
 
-[Las capturas](preview/) cubren inicio de sesión y error 403 en claro y oscuro, a 1366 × 900 y 390 × 844 píxeles. [La captura con movimiento reducido](preview/sign_in-1366-dark-reduced-motion.png) muestra el fotograma estático.
+[Las capturas](preview/) cubren inicio de sesión y error 403 en claro y oscuro, a 1366 × 900 y 390 × 844 píxeles. [La captura con movimiento reducido](preview/sign_in-1366-dark-reduced-motion.png) confirma el mismo fondo fijo.
