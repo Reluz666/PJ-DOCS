@@ -1,0 +1,36 @@
+services:
+  oauth2-proxy:
+    image: quay.io/oauth2-proxy/oauth2-proxy:v7.15.6
+    restart: unless-stopped
+    env_file:
+      - /home/administrator/pj-docs-oauth/oauth2.env
+    ports:
+      - "172.17.128.91:4180:4180"
+    volumes:
+      - ./templates:/etc/oauth2-proxy/templates:ro
+    networks:
+      - pj-docs
+    command:
+      - --http-address=0.0.0.0:4180
+      - --provider=google
+      - --email-domain=pj.gob.pe
+      - --cookie-secure=true
+      - --cookie-domain=pdf.csjla.pe
+      - --cookie-samesite=lax
+      - --cookie-expire=12h
+      - --cookie-refresh=45m
+      - --reverse-proxy=true
+      - "--trusted-proxy-ip=${PJ_DOCS_HAPROXY_CIDRS:?Define los CIDR de HAProxy que ve OAuth2 Proxy}"
+      - --skip-provider-button=false
+      - --prompt=select_account
+      - --code-challenge-method=S256
+      - --custom-templates-dir=/etc/oauth2-proxy/templates
+      - --redirect-url=https://pdf.csjla.pe/oauth2/callback
+      - --exclude-logging-path=/oauth2/callback
+      - --upstream=http://pj-docs:8080
+      - --upstream-timeout=0s
+
+networks:
+  pj-docs:
+    external: true
+    name: "${PJ_DOCS_DOCKER_NETWORK:?Define el nombre de la red Docker de PJ-DOCS}"
