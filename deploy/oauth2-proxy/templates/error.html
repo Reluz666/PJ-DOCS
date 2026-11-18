@@ -6,42 +6,42 @@
   <title>{{.StatusCode}} · {{if eq .StatusCode 403}}Acceso denegado{{else}}Error de acceso{{end}} · PJ-DOCS</title>
 </head>
 <body>
+  {{template "pjdocs-backdrop"}}
   <div class="shell">
-    {{template "pjdocs-masthead"}}
     <main>
       {{template "pjdocs-brand"}}
       <section class="access" aria-labelledby="page-title">
-        <div class="access-content">
-          <p class="eyebrow">Error {{.StatusCode}}</p>
-          {{if eq .StatusCode 403}}
-          <h1 id="page-title">Acceso denegado</h1>
-          <p class="intro">Para acceder a PJ-DOCS necesitas una cuenta institucional <strong>@pj.gob.pe</strong>. Si elegiste una cuenta personal, vuelve a intentarlo con la del Poder Judicial.</p>
-          <form method="get" action="{{.ProxyPrefix}}/start">
-            <input type="hidden" name="rd" value="{{if .Redirect}}{{.Redirect}}{{else}}/{{end}}">
-            <button class="retry-button" type="submit">Reintentar con otra cuenta</button>
-          </form>
-          {{else}}
-          <h1 id="page-title">No se pudo abrir PJ-DOCS</h1>
-          <p class="intro">Vuelve a intentarlo. Si el problema continúa, contacta con soporte de tu institución.</p>
-          <form method="get" action="{{.ProxyPrefix}}/sign_in">
-            <input type="hidden" name="rd" value="{{if .Redirect}}{{.Redirect}}{{else}}/{{end}}">
-            <button class="retry-button" type="submit">Volver al inicio de sesión</button>
-          </form>
-          {{end}}
-          {{if or .Title .Message .RequestID .Version}}
-          <details>
-            <summary>Detalles técnicos</summary>
-            {{if .Title}}<p class="status" lang="en">{{.StatusCode}} {{.Title}}</p>{{end}}
-            {{if .Message}}<p lang="en">{{.Message}}</p>{{end}}
-            {{if .RequestID}}<p>ID de solicitud {{.RequestID}}</p>{{end}}
-            {{if .Version}}<p>OAuth2 Proxy {{.Version}}</p>{{end}}
-          </details>
-          {{end}}
-        </div>
+        {{template "pjdocs-masthead"}}
+        <p class="eyebrow">Error {{.StatusCode}}</p>
+        {{if eq .StatusCode 403}}
+        <h1 id="page-title">Acceso denegado</h1>
+        <p class="intro">Para acceder a PJ-DOCS necesitas una cuenta institucional <strong>@pj.gob.pe</strong>. Si elegiste una cuenta personal, vuelve a intentarlo con la del Poder Judicial.</p>
+        <form method="get" action="{{.ProxyPrefix}}/start">
+          <input type="hidden" name="rd" value="{{if .Redirect}}{{.Redirect}}{{else}}/{{end}}">
+          <button class="retry-button" type="submit">Reintentar con otra cuenta</button>
+        </form>
+        {{else}}
+        <h1 id="page-title">No se pudo abrir PJ-DOCS</h1>
+        <p class="intro">Vuelve a intentarlo. Si el problema continúa, contacta con soporte de tu institución.</p>
+        <form method="get" action="{{.ProxyPrefix}}/sign_in">
+          <input type="hidden" name="rd" value="{{if .Redirect}}{{.Redirect}}{{else}}/{{end}}">
+          <button class="retry-button" type="submit">Volver al inicio de sesión</button>
+        </form>
+        {{end}}
+        {{if or .Title .Message .RequestID .Version}}
+        <details>
+          <summary>Detalles técnicos</summary>
+          {{if .Title}}<p class="status" lang="en">{{.StatusCode}} {{.Title}}</p>{{end}}
+          {{if .Message}}<p lang="en">{{.Message}}</p>{{end}}
+          {{if .RequestID}}<p>ID de solicitud {{.RequestID}}</p>{{end}}
+          {{if .Version}}<p>OAuth2 Proxy {{.Version}}</p>{{end}}
+        </details>
+        {{end}}
       </section>
     </main>
     {{template "pjdocs-footer" .}}
   </div>
+  {{template "pjdocs-aurora"}}
 </body>
 </html>
 {{end}}
