@@ -39,7 +39,7 @@ OAuth2 Proxy carga las dos plantillas en un mismo conjunto. `sign_in.html` conti
 
 Ambas páginas comparten una tarjeta con una ilustración de trabajo con documentos, el logo de PJ-DOCS y el emblema de la CSJLA. La ilustración, el logo y el favicon de [`assets/`](assets/) se incrustan en `sign_in.html` como URL de datos porque OAuth2 Proxy carga las plantillas sin servir esos archivos. En pantallas pequeñas los paneles se apilan.
 
-Ambas vistas usan un fondo fijo que se adapta al tema del sistema.
+Ambas vistas usan la fotografía de la sede judicial del [acceso del Portal CSJLA](https://csjla.pe/admin/login). La [imagen](assets/csjla-portal-background.webp) va incrustada en la plantilla, con un velo borgoña fijo que se adapta al tema del sistema.
 
 El formulario usa `.ProxyPrefix` y `.Redirect` para enviar `rd` a `/start`. La página de error usa también `.StatusCode`, `.Title`, `.Message`, `.RequestID`, `.Footer` y `.Version`. El 403 incluye el requisito del dominio y permite elegir otra cuenta. [Variables de inicio de sesión](https://github.com/oauth2-proxy/oauth2-proxy/blob/v7.15.6/pkg/app/pagewriter/sign_in_page.go) · [Variables de error](https://github.com/oauth2-proxy/oauth2-proxy/blob/v7.15.6/pkg/app/pagewriter/error_page.go)
 
